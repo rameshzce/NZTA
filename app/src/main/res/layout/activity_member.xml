@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tableLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:shrinkColumns="*"
+    android:stretchColumns="*" >
+
+
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:onClick="rowClick1"
+        android:background="@color/upcomingEvents"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/upcoming_events" >
+        </ImageView>
+
+        <TableLayout>
+
+            <TableRow
+                android:layout_width="fill_parent">
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:text="Upcoming Events"
+                    android:textSize="20dp"
+                    android:textColor="@color/white"
+                    android:layout_gravity="right"
+                    android:paddingRight="10dp"
+                    android:textStyle="bold" >
+                </TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent">
+
+                <TextView
+                    android:id="@+id/textView1a"
+                    android:text="2016"
+                    android:layout_gravity="right"
+                    android:textSize="30dp"
+                    android:textColor="@color/white"
+                    android:paddingRight="10dp"
+                    android:textStyle="bold" >
+                </TextView>
+            </TableRow>
+        </TableLayout>
+
+
+
+
+    </TableRow>
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@color/existingEvents"
+        android:onClick="rowClick2"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/existing_events" >
+        </ImageView>
+
+
+
+        <TableLayout>
+
+            <TableRow
+                android:layout_width="fill_parent">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:text="Existing Events"
+                    android:textSize="20dp"
+                    android:textColor="@color/white"
+                    android:layout_gravity="right"
+                    android:paddingRight="10dp"
+                    android:textStyle="bold" >
+                </TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent">
+
+                <TextView
+                    android:id="@+id/textView2a"
+                    android:text="2015"
+                    android:layout_gravity="right"
+                    android:textSize="30dp"
+                    android:textColor="@color/white"
+                    android:paddingRight="10dp"
+                    android:textStyle="bold" >
+                </TextView>
+            </TableRow>
+        </TableLayout>
+
+    </TableRow>
+    <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@color/goGreen"
+        android:onClick="rowClick3"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/go_green" >
+        </ImageView>
+
+
+
+        <TableLayout>
+
+            <TableRow
+                android:layout_width="fill_parent">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:text="Go green/NZ Blood"
+                    android:textSize="20dp"
+                    android:textColor="@color/white"
+                    android:layout_gravity="right"
+                    android:paddingRight="10dp"
+                    android:textStyle="bold" >
+                </TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent">
+
+                <TextView
+                    android:id="@+id/textView3a"
+                    android:text="Others"
+                    android:layout_gravity="right"
+                    android:textSize="30dp"
+                    android:textColor="@color/white"
+                    android:paddingRight="10dp"
+                    android:textStyle="bold" >
+                </TextView>
+            </TableRow>
+        </TableLayout>
+
+    </TableRow>
+    <TableRow
+        android:id="@+id/tableRow4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@color/referFriend"
+        android:onClick="rowClick4"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/invite_friend" >
+        </ImageView>
+
+
+
+        <TableLayout>
+
+            <TableRow
+                android:layout_width="fill_parent">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:text="Invite a friend"
+                    android:textSize="20dp"
+                    android:textColor="@color/white"
+                    android:layout_gravity="right"
+                    android:paddingRight="10dp"
+                    android:textStyle="bold" >
+                </TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent">
+
+                <TextView
+                    android:id="@+id/textView4a"
+                    android:text=""
+                    android:textSize="30dp"
+                    android:layout_gravity="right"
+                    android:textColor="@color/white"
+                    android:paddingRight="10dp"
+                    android:textStyle="bold" >
+                </TextView>
+
+            </TableRow>
+        </TableLayout>
+
+    </TableRow>
+
+
+
+</TableLayout>
+
