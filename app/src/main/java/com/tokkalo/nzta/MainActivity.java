@@ -1,5 +1,10 @@
 package com.tokkalo.nzta;
 
+import com.twitter.sdk.android.Twitter;
+import com.twitter.sdk.android.core.Callback;
+import com.twitter.sdk.android.core.Result;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
+import io.fabric.sdk.android.Fabric;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,6 +19,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
@@ -26,6 +32,9 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.twitter.sdk.android.core.TwitterException;
+import com.twitter.sdk.android.core.TwitterSession;
+import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,6 +56,12 @@ import org.apache.http.message.BasicNameValuePair;
 
 
 public class MainActivity extends AppCompatActivity {
+    private TwitterLoginButton loginButton;
+
+    // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
+    private static final String TWITTER_KEY = "tNMYriDJoxKnASqEvLCUdhES4";
+    private static final String TWITTER_SECRET = "vZwTgq47Ixd67kzykhFAwULOHSL2ZnTubYqi4X17l8THSRman6";
+
     private EditText editTextName;
     private EditText editTextMobile;
     private EditText editTextEmail;
@@ -72,7 +87,31 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
+        Fabric.with(this, new Twitter(authConfig));
         setContentView(R.layout.activity_main);
+
+        loginButton = (TwitterLoginButton) findViewById(R.id.twitter_login_button);
+        loginButton.setCallback(new Callback<TwitterSession>() {
+            @Override
+            public void success(Result<TwitterSession> result) {
+                // The TwitterSession is also available through:
+                // Twitter.getInstance().core.getSessionManager().getActiveSession()
+                TwitterSession session = result.data;
+                // TODO: Remove toast and use the TwitterSession's userID
+                // with your app's user model
+                String msg = "@" + session.getUserName() + " logged in! (#" + session.getUserId() + ")";
+                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+
+                insertToDatabase(session.getUserName(), session.getUserName(), session.getUserName());
+            }
+
+            @Override
+            public void failure(TwitterException exception) {
+                Log.d("TwitterKit", "Login with Twitter failure", exception);
+            }
+        });
+
 
         getSupportActionBar().hide();
 
@@ -105,8 +144,8 @@ public class MainActivity extends AppCompatActivity {
         if (!TextUtils.isEmpty(registrationId)) {
             Intent i = new Intent(applicationContext, MemberActivity.class);
             i.putExtra("regId", registrationId);
-            //startActivity(i);
-            //finish();
+            startActivity(i);
+            finish();
         }
 
 
@@ -133,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void insertToDatabase(String name, String mobileNumber,String organization){
+    private void insertToDatabase(final String name, String mobileNumber,String organization){
         final ProgressDialog progressDialog  = new ProgressDialog(MainActivity.this);
         progressDialog.setCancelable(true);
         progressDialog.setMessage("Please wait...");
@@ -214,17 +253,25 @@ public class MainActivity extends AppCompatActivity {
                         String message = jsonObj.getString("message");
 
                         if (status.equals("SUCCESS")) {
-                            RegisterUser();
+
 
                             String phone = jsonObj.getString("phone");
                             String otp = jsonObj.getString("otp");
 
+                            RegisterUser(phone, name);
+
                             Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
 
-                            Intent intent = new Intent(MainActivity.this, UserConfirmationActivity.class);
-                            intent.putExtra("phone", phone);
-                            intent.putExtra("otp", otp);
-                            MainActivity.this.startActivity(intent);
+                            if(phone.equals(name)){
+                                Intent intent = new Intent(MainActivity.this, MemberActivity.class);
+                                MainActivity.this.startActivity(intent);
+                            }else {
+                                Intent intent = new Intent(MainActivity.this, UserConfirmationActivity.class);
+                                intent.putExtra("phone", phone);
+                                intent.putExtra("otp", otp);
+                                MainActivity.this.startActivity(intent);
+                            }
+
                         } else if (status.equals("FAILURE")) {
                             Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
                         } else {
@@ -244,13 +291,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // When Register Me button is clicked
-    public void RegisterUser() {
-        String mobile = editTextMobile.getText().toString();
-        String name = editTextName.getText().toString();
+    public void RegisterUser(String phone, String name) {
+        //String mobile = editTextMobile.getText().toString();
+        //String name = editTextName.getText().toString();
 
         if (checkPlayServices()) {
             // Register Device in GCM Server
-            registerInBackground(mobile, name);
+            registerInBackground(phone, name);
         }
     }
 
@@ -304,16 +351,16 @@ public class MainActivity extends AppCompatActivity {
         editor.putString(REG_ID, regId);
         editor.putString(MOBILE_NUMBER, mobile);
         editor.commit();
-        storeRegIdinServer();
+        storeRegIdinServer(mobile);
 
     }
 
     // Share RegID with GCM Server Application (Php)
-    private void storeRegIdinServer() {
-        String mobileNumber = editTextMobile.getText().toString();
+    private void storeRegIdinServer(String mobile) {
+        //String mobileNumber = editTextMobile.getText().toString();
         prgDialog.show();
         params.put("regId", regId);
-        params.put("mobileNumber", mobileNumber);
+        params.put("mobileNumber", mobile);
         // Make RESTful webservice call using AsyncHttpClient object
         AsyncHttpClient client = new AsyncHttpClient();
         client.post(ApplicationConstants.APP_SERVER_URL, params,
@@ -403,4 +450,13 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // Make sure that the loginButton hears the result from any
+        // Activity that it triggered.
+        loginButton.onActivityResult(requestCode, resultCode, data);
+    }
+
 }
