@@ -107,19 +107,26 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        info = (TextView)findViewById(R.id.info);
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/handlee-regular.ttf");
+
+
+
+        info = (TextView)findViewById(R.id.fbLoginInfo);
+        info.setTypeface(font);
         loginButtonFb = (LoginButton)findViewById(R.id.login_button);
 
         loginButtonFb.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                info.setText(
+                String userId = loginResult.getAccessToken().getUserId();
+                /*info.setText(
                         "User ID: "
                                 + loginResult.getAccessToken().getUserId()
                                 + "\n" +
                                 "Auth Token: "
                                 + loginResult.getAccessToken().getToken()
-                );
+                );*/
+                insertToDatabase(userId, userId, userId);
             }
 
             @Override
@@ -133,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/handlee-regular.ttf");
+
 
         TextView txt1 = (TextView) findViewById(R.id.textView1);
         txt1.setTypeface(font);
