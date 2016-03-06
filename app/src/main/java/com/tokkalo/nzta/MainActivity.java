@@ -15,6 +15,7 @@ import java.util.List;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.app.ProgressDialog;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -90,6 +92,20 @@ public class MainActivity extends AppCompatActivity {
         TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
         Fabric.with(this, new Twitter(authConfig));
         setContentView(R.layout.activity_main);
+
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/handlee-regular.ttf");
+
+        TextView txt1 = (TextView) findViewById(R.id.textView1);
+        txt1.setTypeface(font);
+
+        EditText txt2 = (EditText) findViewById(R.id.editTextName);
+        txt2.setTypeface(font);
+
+        EditText txt3 = (EditText) findViewById(R.id.editTextMobile);
+        txt3.setTypeface(font);
+
+        EditText txt4 = (EditText) findViewById(R.id.editTextEmail);
+        txt4.setTypeface(font);
 
         loginButton = (TwitterLoginButton) findViewById(R.id.twitter_login_button);
         loginButton.setCallback(new Callback<TwitterSession>() {

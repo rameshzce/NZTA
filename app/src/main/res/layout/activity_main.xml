@@ -4,7 +4,7 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:orientation="vertical"
-    android:background="@drawable/bg"
+    android:background="@color/homeBg"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.tokkalo.nzta.MainActivity">
@@ -19,17 +19,19 @@
         android:scaleType="fitXY"/>
 
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4sp"
+        android:layout_marginTop="10sp"
         android:layout_gravity="center_horizontal"
         android:textSize="20dp"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:text="New Zealand Telugu Association" />
+        android:text="@string/home_title" />
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
+        android:theme="@style/TextLabel"
         android:layout_height="wrap_content">
 
         <EditText
@@ -37,12 +39,14 @@
             android:layout_marginTop="10sp"
             android:layout_width="match_parent"
             android:hint="Full Name"
+            android:textColor="@color/white"
             android:nextFocusDown="@+id/mobileNumber"
             android:layout_height="wrap_content"    />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
+        android:theme="@style/TextLabel"
         android:layout_height="wrap_content">
 
         <EditText
@@ -50,12 +54,14 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6sp"
+            android:textColor="@color/white"
             android:hint="Mobile Number"
             android:inputType="number" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
+        android:theme="@style/TextLabel"
         android:layout_height="wrap_content">
 
         <EditText
@@ -63,6 +69,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6sp"
+            android:textColor="@color/white"
             android:nextFocusDown="@+id/editTextAddress"
             android:hint="Email Id" />
     </android.support.design.widget.TextInputLayout>

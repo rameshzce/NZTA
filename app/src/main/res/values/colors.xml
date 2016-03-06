@@ -26,4 +26,6 @@
     <color name="existingEvents">#ffd428</color>
     <color name="goGreen">#10d295</color>
     <color name="referFriend">#039cfd</color>
+    <color name="homeBg">#00923f</color>
+
 </resources>
