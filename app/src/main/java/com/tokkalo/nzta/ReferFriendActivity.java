@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -49,9 +50,19 @@ public class ReferFriendActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("com.tokkalo.nzta", Context.MODE_PRIVATE);
 
         fromMobile = prefs.getString("mobileNumber", "");
+
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/handlee-regular.ttf");
+
+        TextView txt1 = (TextView) findViewById(R.id.textView1);
+        txt1.setTypeface(font);
+
+        TextView txt2 = (TextView) findViewById(R.id.textViewResult);
+        txt2.setTypeface(font);
+
+        editTextMobile.setTypeface(font);
     }
 
-    public void Submit(View view){
+    public void submit(View view){
         toMobile = editTextMobile.getText().toString();
 
         if(toMobile.isEmpty()){
@@ -61,6 +72,10 @@ public class ReferFriendActivity extends AppCompatActivity {
         } else {
             insertToDatabase(fromMobile, toMobile);
         }
+    }
+
+    public void sendMessage(View view){
+        
     }
 
     private void insertToDatabase(String fromMobile, String toMobile){

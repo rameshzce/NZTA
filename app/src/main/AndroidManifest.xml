@@ -66,10 +66,13 @@
         <activity android:name=".UpcomingEventsActivity" />
         <activity android:name=".UCEventsActivity" />
         <activity android:name=".MemberActivity" />
-        <activity android:name=".PopUpActivity"></activity>
+        <activity android:name=".PopUpActivity" />
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="8af5b3bbaf1b37796949b09e9a978614a6d92da1" />
+
+        <activity android:name=".SendMessageActivity"></activity>
     </application>
 
 </manifest>
