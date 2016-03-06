@@ -1,10 +1,16 @@
 package com.tokkalo.nzta;
 
-import com.twitter.sdk.android.Twitter;
-import com.twitter.sdk.android.core.Callback;
-import com.twitter.sdk.android.core.Result;
-import com.twitter.sdk.android.core.TwitterAuthConfig;
-import io.fabric.sdk.android.Fabric;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
+//import com.twitter.sdk.android.Twitter;
+//import com.twitter.sdk.android.core.Callback;
+//import com.twitter.sdk.android.core.Result;
+//import com.twitter.sdk.android.core.TwitterAuthConfig;
+//import io.fabric.sdk.android.Fabric;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,9 +40,9 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.twitter.sdk.android.core.TwitterException;
-import com.twitter.sdk.android.core.TwitterSession;
-import com.twitter.sdk.android.core.identity.TwitterLoginButton;
+//import com.twitter.sdk.android.core.TwitterException;
+//import com.twitter.sdk.android.core.TwitterSession;
+//import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -58,15 +64,19 @@ import org.apache.http.message.BasicNameValuePair;
 
 
 public class MainActivity extends AppCompatActivity {
-    private TwitterLoginButton loginButton;
+    //private TwitterLoginButton loginButton;
 
     // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
-    private static final String TWITTER_KEY = "tNMYriDJoxKnASqEvLCUdhES4";
-    private static final String TWITTER_SECRET = "vZwTgq47Ixd67kzykhFAwULOHSL2ZnTubYqi4X17l8THSRman6";
+    //private static final String TWITTER_KEY = "tNMYriDJoxKnASqEvLCUdhES4";
+    //private static final String TWITTER_SECRET = "vZwTgq47Ixd67kzykhFAwULOHSL2ZnTubYqi4X17l8THSRman6";
 
     private EditText editTextName;
     private EditText editTextMobile;
     private EditText editTextEmail;
+
+    private TextView info;
+    private LoginButton loginButtonFb;
+    private CallbackManager callbackManager;
 
 
     //Context applicationContext;
@@ -89,9 +99,39 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
-        Fabric.with(this, new Twitter(authConfig));
+        //TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
+        //Fabric.with(this, new Twitter(authConfig));
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        callbackManager = CallbackManager.Factory.create();
+
         setContentView(R.layout.activity_main);
+
+        info = (TextView)findViewById(R.id.info);
+        loginButtonFb = (LoginButton)findViewById(R.id.login_button);
+
+        loginButtonFb.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                info.setText(
+                        "User ID: "
+                                + loginResult.getAccessToken().getUserId()
+                                + "\n" +
+                                "Auth Token: "
+                                + loginResult.getAccessToken().getToken()
+                );
+            }
+
+            @Override
+            public void onCancel() {
+                info.setText("Login attempt canceled.");
+            }
+
+            @Override
+            public void onError(FacebookException e) {
+                info.setText("Login attempt failed.");
+            }
+        });
 
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/handlee-regular.ttf");
 
@@ -107,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         EditText txt4 = (EditText) findViewById(R.id.editTextEmail);
         txt4.setTypeface(font);
 
-        loginButton = (TwitterLoginButton) findViewById(R.id.twitter_login_button);
+        /*loginButton = (TwitterLoginButton) findViewById(R.id.twitter_login_button);
         loginButton.setCallback(new Callback<TwitterSession>() {
             @Override
             public void success(Result<TwitterSession> result) {
@@ -126,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
             public void failure(TwitterException exception) {
                 Log.d("TwitterKit", "Login with Twitter failure", exception);
             }
-        });
+        });*/
 
 
         getSupportActionBar().hide();
@@ -472,7 +512,8 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         // Make sure that the loginButton hears the result from any
         // Activity that it triggered.
-        loginButton.onActivityResult(requestCode, resultCode, data);
+        //loginButton.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
 }

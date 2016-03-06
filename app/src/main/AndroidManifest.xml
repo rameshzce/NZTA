@@ -71,9 +71,18 @@
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="8af5b3bbaf1b37796949b09e9a978614a6d92da1" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
 
         <activity android:name=".SendMessageActivity" />
-        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".HomeActivity" />
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name=".FacebookActivity"></activity>
     </application>
 
 </manifest>
