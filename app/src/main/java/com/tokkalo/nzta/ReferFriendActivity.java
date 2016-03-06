@@ -75,7 +75,8 @@ public class ReferFriendActivity extends AppCompatActivity {
     }
 
     public void sendMessage(View view){
-        
+        Intent intent = new Intent(ReferFriendActivity.this, SendMessageActivity.class);
+        ReferFriendActivity.this.startActivity(intent);
     }
 
     private void insertToDatabase(String fromMobile, String toMobile){

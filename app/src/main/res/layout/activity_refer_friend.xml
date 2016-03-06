@@ -57,7 +57,7 @@ tools:context="com.tokkalo.nzta.ReferFriendActivity">
     android:textSize="16dp"
     android:textColor="@color/white"     />
 
-    <Button
+<Button
         android:id="@+id/sendMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

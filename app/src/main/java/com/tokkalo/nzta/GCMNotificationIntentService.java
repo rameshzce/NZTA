@@ -40,7 +40,7 @@ public class GCMNotificationIntentService extends IntentService {
                         + extras.toString());
             } else if (GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE
                     .equals(messageType)) {
-                sendNotification("Message Received from Google GCM Server:nn"
+                sendNotification("Message from NZTA: "
                         + extras.get(ApplicationConstants.MSG_KEY));
             }
         }
@@ -48,7 +48,7 @@ public class GCMNotificationIntentService extends IntentService {
     }
 
     private void sendNotification(String msg) {
-        Intent resultIntent = new Intent(this, UserActivity.class);
+        Intent resultIntent = new Intent(this, HomeActivity.class);
         resultIntent.putExtra("msg", msg);
         PendingIntent resultPendingIntent = PendingIntent.getActivity(this, 0,
                 resultIntent, PendingIntent.FLAG_ONE_SHOT);
@@ -73,7 +73,7 @@ public class GCMNotificationIntentService extends IntentService {
 
         mNotifyBuilder.setDefaults(defaults);
         // Set the content for Notification
-        mNotifyBuilder.setContentText("New message from Server");
+        mNotifyBuilder.setContentText("New message from NZTA");
         // Set autocancel
         mNotifyBuilder.setAutoCancel(true);
         // Post a notification
