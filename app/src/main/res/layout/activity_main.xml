@@ -32,6 +32,7 @@
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
+        android:id="@+id/nameLayout"
         android:theme="@style/TextLabel"
         android:layout_height="wrap_content">
 
@@ -41,7 +42,6 @@
             android:layout_width="match_parent"
             android:hint="Name"
             android:textColor="@color/white"
-            android:nextFocusDown="@+id/mobileNumber"
             android:imeOptions="actionNext"
             android:inputType="text"
             android:layout_height="wrap_content"    />
@@ -49,6 +49,7 @@
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
+        android:id="@+id/mobLayout"
         android:theme="@style/TextLabel"
         android:layout_height="wrap_content">
 
@@ -65,6 +66,7 @@
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
+        android:id="@+id/emailLayout"
         android:theme="@style/TextLabel"
         android:layout_height="wrap_content">
 
@@ -75,7 +77,6 @@
             android:layout_marginTop="6sp"
             android:textColor="@color/white"
             android:inputType="text"
-            android:nextFocusDown="@+id/editTextAddress"
             android:imeOptions="actionDone"
             android:hint="Email" />
     </android.support.design.widget.TextInputLayout>
@@ -83,8 +84,8 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="175dp"
+        android:layout_height="30dp"
         android:layout_marginTop="20sp"
         android:background="@drawable/bg_button_rounded"
         android:textColor="@color/white"

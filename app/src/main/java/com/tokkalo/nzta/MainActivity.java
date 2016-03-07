@@ -23,6 +23,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -157,6 +158,21 @@ public class MainActivity extends AppCompatActivity {
 
         EditText txt4 = (EditText) findViewById(R.id.editTextEmail);
         txt4.setTypeface(font);
+
+
+        TextInputLayout til1 = (TextInputLayout) findViewById(R.id.nameLayout);
+        til1.getEditText().setTypeface(font);
+        til1.setTypeface(font);
+
+        TextInputLayout til2 = (TextInputLayout) findViewById(R.id.mobLayout);
+        til2.getEditText().setTypeface(font);
+        til2.setTypeface(font);
+
+        TextInputLayout til3 = (TextInputLayout) findViewById(R.id.emailLayout);
+        til3.getEditText().setTypeface(font);
+        til3.setTypeface(font);
+
+
 
         /*loginButton = (TwitterLoginButton) findViewById(R.id.twitter_login_button);
         loginButton.setCallback(new Callback<TwitterSession>() {
