@@ -42,6 +42,8 @@
             android:hint="Name"
             android:textColor="@color/white"
             android:nextFocusDown="@+id/mobileNumber"
+            android:imeOptions="actionNext"
+            android:inputType="text"
             android:layout_height="wrap_content"    />
     </android.support.design.widget.TextInputLayout>
 
@@ -56,6 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6sp"
             android:textColor="@color/white"
+            android:imeOptions="actionNext"
             android:hint="Mob"
             android:inputType="number" />
     </android.support.design.widget.TextInputLayout>
@@ -71,7 +74,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6sp"
             android:textColor="@color/white"
+            android:inputType="text"
             android:nextFocusDown="@+id/editTextAddress"
+            android:imeOptions="actionDone"
             android:hint="Email" />
     </android.support.design.widget.TextInputLayout>
 

@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10sp"
-        android:text="Thanks for joining NZTA. OTP has been sent to your mobile, please confirm your mobile number."      />
+        android:text="Thanks for joining NZTA!. Please enter 1234 confirm your mobile number."      />
 
     <EditText
         android:id="@+id/editOtp"
