@@ -411,10 +411,10 @@ public class MainActivity extends AppCompatActivity {
                 if (!TextUtils.isEmpty(regId)) {
                     // Store RegId created by GCM Server in SharedPref
                     storeRegIdinSharedPref(applicationContext, regId, mobile);
-                    Toast.makeText(
+                    /*Toast.makeText(
                             applicationContext,
                             "Registered with GCM Server successfully.nn"
-                                    + msg, Toast.LENGTH_SHORT).show();
+                                    + msg, Toast.LENGTH_SHORT).show();*/
                 } else {
                     Toast.makeText(
                             applicationContext,
@@ -457,9 +457,9 @@ public class MainActivity extends AppCompatActivity {
                         if (prgDialog != null) {
                             prgDialog.dismiss();
                         }
-                        Toast.makeText(applicationContext,
+                        /*Toast.makeText(applicationContext,
                                 "Reg Id shared successfully with Web App ",
-                                Toast.LENGTH_LONG).show();
+                                Toast.LENGTH_LONG).show();*/
                         //Intent i = new Intent(applicationContext, HomeActivity.class);
                         //i.putExtra("regId", regId);
                         //startActivity(i);
