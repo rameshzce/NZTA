@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
+import android.os.Handler;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -63,15 +64,19 @@ public class UserConfirmationActivity extends AppCompatActivity {
         EditText otp = (EditText) findViewById(R.id.editOtp);
         String editOtp = otp.getText().toString();
         updateDoner(phone, editOtp);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+            /* Create an Intent that will start the Menu-Activity. */
+                Intent mainIntent = new Intent(UserConfirmationActivity.this, MemberActivity.class);
+                startActivity(mainIntent);
+                finish();
+            }
+        }, 10000);
     }
 
-    public void goHome(View v) {
 
-        Intent intent = new Intent(UserConfirmationActivity.this, MemberActivity.class);
-        intent.putExtra("userId", "Hi");
-        intent.putExtra("loginType", "NZ");
-        UserConfirmationActivity.this.startActivity(intent);
-    }
 
     private void updateDoner(String phone, String otp){
         final ProgressDialog progressDialog  = new ProgressDialog(UserConfirmationActivity.this);
@@ -151,13 +156,18 @@ public class UserConfirmationActivity extends AppCompatActivity {
                             b.setVisibility(View.INVISIBLE);
 
                             View otp = findViewById(R.id.editOtp);
-                            otp.setVisibility(View.INVISIBLE);
+                            otp.setVisibility(View.GONE);
+
+                            TextInputLayout til1 = (TextInputLayout) findViewById(R.id.otpLayout);
+                            til1.setVisibility(View.GONE);
+
+                            TextView textViewToChange2 = (TextView) findViewById(R.id.textView1);
+                            textViewToChange2.setVisibility(View.GONE);
 
                             TextView textViewToChange = (TextView) findViewById(R.id.textView);
                             textViewToChange.setText(message);
 
-                            View home = findViewById(R.id.home);
-                            home.setVisibility(View.VISIBLE);
+
 
                         }else {
 
