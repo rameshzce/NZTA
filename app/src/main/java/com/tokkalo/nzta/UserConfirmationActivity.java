@@ -2,10 +2,13 @@ package com.tokkalo.nzta;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +40,21 @@ public class UserConfirmationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_confirmation);
 
         getSupportActionBar().hide();
+
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/handlee-regular.ttf");
+
+        TextView txt1 = (TextView) findViewById(R.id.textView);
+        txt1.setTypeface(font);
+
+        TextView txt2 = (TextView) findViewById(R.id.textView1);
+        txt2.setTypeface(font);
+
+        Button btn1 = (Button) findViewById(R.id.button);
+        btn1.setTypeface(font);
+
+        TextInputLayout til1 = (TextInputLayout) findViewById(R.id.otpLayout);
+        til1.getEditText().setTypeface(font);
+        til1.setTypeface(font);
     }
 
     public void confirmMobile(View v) {

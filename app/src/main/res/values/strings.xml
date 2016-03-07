@@ -27,4 +27,6 @@
 
     </string-array>
     <string name="facebook_app_id">1007703549267674</string>
+    <string name="confirmationMsg1">Thanks for joining NZTA!</string>
+    <string name="confirmationMsg2">Please enter 1234 to confirm your mobile number.</string>
 </resources>

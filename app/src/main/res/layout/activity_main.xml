@@ -90,6 +90,7 @@
         android:background="@drawable/bg_button_rounded"
         android:textColor="@color/white"
         android:layout_gravity="center_horizontal"
+        android:textAllCaps="false"
         android:text="Register"
         android:onClick="insert"        />
 
