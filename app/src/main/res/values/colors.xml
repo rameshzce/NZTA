@@ -21,7 +21,7 @@
     <color name="black">#000000</color>
     <color name="bg_gradient_start">#3990CA</color>
     <color name="bg_gradient_end">#15547E</color>
-    <color name="bg_button_login">#1D394C</color>
+    <color name="bg_button_login">#10d295</color>
     <color name="upcomingEvents">#ff218e</color>
     <color name="existingEvents">#ffd428</color>
     <color name="goGreen">#10d295</color>

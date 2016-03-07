@@ -22,7 +22,8 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10sp"
+        android:layout_marginTop="4sp"
+        android:layout_marginBottom="30sp"
         android:layout_gravity="center_horizontal"
         android:textSize="20dp"
         android:textColor="@color/white"
@@ -38,7 +39,7 @@
             android:id="@+id/editTextName"
             android:layout_marginTop="10sp"
             android:layout_width="match_parent"
-            android:hint="Full Name"
+            android:hint="Name"
             android:textColor="@color/white"
             android:nextFocusDown="@+id/mobileNumber"
             android:layout_height="wrap_content"    />
@@ -55,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6sp"
             android:textColor="@color/white"
-            android:hint="Mobile Number"
+            android:hint="Mob"
             android:inputType="number" />
     </android.support.design.widget.TextInputLayout>
 
@@ -71,7 +72,7 @@
             android:layout_marginTop="6sp"
             android:textColor="@color/white"
             android:nextFocusDown="@+id/editTextAddress"
-            android:hint="Email Id" />
+            android:hint="Email" />
     </android.support.design.widget.TextInputLayout>
 
 
@@ -102,7 +103,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginTop="10sp"
+        android:layout_marginTop="20sp"
         android:layout_gravity="center_horizontal"
         />
 

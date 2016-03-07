@@ -29,6 +29,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.app.ProgressDialog;
 import android.widget.TextView;
@@ -144,6 +145,9 @@ public class MainActivity extends AppCompatActivity {
 
         TextView txt1 = (TextView) findViewById(R.id.textView1);
         txt1.setTypeface(font);
+
+        Button btn1 = (Button) findViewById(R.id.button);
+        btn1.setTypeface(font);
 
         EditText txt2 = (EditText) findViewById(R.id.editTextName);
         txt2.setTypeface(font);
