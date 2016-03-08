@@ -22,7 +22,7 @@
 
         <ImageView
             android:id="@+id/imageView1"
-            android:paddingLeft="10dp"
+            android:paddingLeft="60dp"
             android:paddingRight="10dp"
             android:src="@drawable/upcoming_events" >
         </ImageView>
@@ -76,7 +76,7 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:paddingLeft="10dp"
+            android:paddingLeft="60dp"
             android:paddingRight="10dp"
             android:src="@drawable/existing_events" >
         </ImageView>
@@ -130,7 +130,7 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:paddingLeft="10dp"
+            android:paddingLeft="60dp"
             android:paddingRight="10dp"
             android:src="@drawable/go_green" >
         </ImageView>
@@ -183,7 +183,7 @@
 
         <ImageView
             android:id="@+id/imageView4"
-            android:paddingLeft="10dp"
+            android:paddingLeft="60dp"
             android:paddingRight="10dp"
             android:src="@drawable/invite_friend" >
         </ImageView>
@@ -192,7 +192,10 @@
 
         <TableLayout>
 
+
+
             <TableRow
+                android:gravity="right"
                 android:layout_width="fill_parent">
 
                 <TextView
@@ -201,25 +204,12 @@
                     android:textSize="20dp"
                     android:textColor="@color/white"
                     android:layout_gravity="right"
-                    android:paddingRight="10dp"
+                    android:paddingRight="60dp"
                     android:textStyle="bold" >
                 </TextView>
             </TableRow>
 
-            <TableRow
-                android:layout_width="fill_parent">
 
-                <TextView
-                    android:id="@+id/textView4a"
-                    android:text=""
-                    android:textSize="30dp"
-                    android:layout_gravity="right"
-                    android:textColor="@color/white"
-                    android:paddingRight="10dp"
-                    android:textStyle="bold" >
-                </TextView>
-
-            </TableRow>
         </TableLayout>
 
     </TableRow>

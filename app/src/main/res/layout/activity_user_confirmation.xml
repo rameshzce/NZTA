@@ -55,6 +55,7 @@
         android:background="@drawable/bg_button_rounded"
         android:textColor="@color/white"
         android:textAllCaps="false"
+        android:textSize="16dp"
         android:onClick="confirmMobile"  />
 
 

@@ -18,7 +18,11 @@
 
     <!-- Corner radius -->
     <corners
-        android:radius="0dp"   >
+        android:radius="5dp"   >
     </corners>
 
+    <!-- Font radius -->
+    <font
+        android:textSize="20dp"   >
+    </font>
 </shape>

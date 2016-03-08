@@ -91,6 +91,7 @@
         android:textColor="@color/white"
         android:layout_gravity="center_horizontal"
         android:textAllCaps="false"
+        android:textSize="16dp"
         android:text="Register"
         android:onClick="insert"        />
 
