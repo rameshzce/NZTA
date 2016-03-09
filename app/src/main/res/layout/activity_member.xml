@@ -12,6 +12,7 @@
     <TableRow
         android:id="@+id/tableRow1"
         android:layout_weight="1"
+        android:layout_marginBottom="1dip"
         android:onClick="rowClick1"
         android:gravity="center_vertical"
         android:background="@color/upcomingEvents"
@@ -65,6 +66,7 @@
     <TableRow
         android:id="@+id/tableRow2"
         android:layout_weight="1"
+        android:layout_marginBottom="1dip"
         android:background="@color/existingEvents"
         android:gravity="center_vertical"
         android:onClick="rowClick2"
@@ -117,6 +119,7 @@
     <TableRow
         android:id="@+id/tableRow3"
         android:layout_weight="1"
+        android:layout_marginBottom="1dip"
         android:background="@color/goGreen"
         android:gravity="center_vertical"
         android:onClick="rowClick3"
