@@ -99,7 +99,7 @@ package com.tokkalo.nzta;
                     personList.add(persons);
                 }
 
-                ListAdapter adapter = new SimpleAdapter(
+                SpecialAdapter adapter = new SpecialAdapter(
                         UpcomingEventsActivity.this, personList, R.layout.list_item,
                         new String[]{TAG_ID,TAG_ADD},
                         new int[]{R.id.id, R.id.address}

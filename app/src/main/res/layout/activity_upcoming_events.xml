@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@color/upcomingEvents"
     tools:context="com.tokkalo.nzta.UpcomingEventsActivity">
 
 
@@ -11,10 +11,11 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:divider="@android:color/transparent"
+        android:dividerHeight="20dp"
         android:id="@+id/listView" />
 
-    <fragment
+    <!-- <fragment
         android:id="@+id/fragment2"
         android:name="com.tokkalo.nzta.FragmentTwo"
         android:layout_marginTop="10sp"
@@ -22,6 +23,6 @@
         android:layout_alignParentRight="true"
         android:onClick="showMenu"
         android:layout_width="30dp"
-        android:layout_height="30dp" />
+        android:layout_height="30dp" /> -->
 
 </RelativeLayout>
