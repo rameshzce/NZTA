@@ -2,8 +2,14 @@ package com.tokkalo.nzta;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AbsoluteLayout;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
@@ -28,6 +34,8 @@ public class SpecialAdapter extends SimpleAdapter {
         //int colorPos = position % colors.length;
         //view.setBackgroundColor(colors[colorPos]);
 
+        //RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) view.getLayoutParams();
+        //params.width = 1200;
 
 
         TextView tv = (TextView) view.findViewById(R.id.id);
@@ -40,6 +48,8 @@ public class SpecialAdapter extends SimpleAdapter {
 
         int colorPos = position % listItemBackground.length;
         view.setBackgroundResource(listItemBackground[colorPos]);
+        //view.setLayoutParams(params);
+        //view.setRight(100);
         return view;
     }
 }

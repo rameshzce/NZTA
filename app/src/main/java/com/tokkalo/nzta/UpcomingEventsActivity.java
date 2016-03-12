@@ -75,6 +75,10 @@ package com.tokkalo.nzta;
             list = (ListView) findViewById(R.id.listView);
             personList = new ArrayList<HashMap<String,String>>();
 
+            RelativeLayout.LayoutParams lpimgHeader = new RelativeLayout.LayoutParams(list.getLayoutParams());
+            lpimgHeader.setMargins(50, 0, 50, 0);
+            list.setLayoutParams(lpimgHeader);
+
 
             ActionBar ab = getSupportActionBar();
 
