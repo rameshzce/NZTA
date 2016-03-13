@@ -65,6 +65,8 @@ public class ExistingEventsActivity extends AppCompatActivity {
         NumberPicker np = (NumberPicker) findViewById(R.id.years);
         np.setMaxValue(2015);
         np.setMinValue(2010);
+
+        np.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         //np.setDividerDrawable();
 
         //TextView et = (TextView) np.getChildAt(1);
@@ -109,7 +111,6 @@ public class ExistingEventsActivity extends AppCompatActivity {
     public void getEvents(View view){
         cnp = (CustomNumberPicker) findViewById(R.id.years);
         String year = "" + cnp.getValue();
-        //Toast.makeText(getApplicationContext(), year, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(ExistingEventsActivity.this, ShowEventsActivity.class);
         intent.putExtra("year", year);
         ExistingEventsActivity.this.startActivity(intent);
