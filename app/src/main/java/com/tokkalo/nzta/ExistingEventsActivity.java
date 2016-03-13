@@ -1,6 +1,7 @@
 package com.tokkalo.nzta;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
@@ -64,6 +65,7 @@ public class ExistingEventsActivity extends AppCompatActivity {
         NumberPicker np = (NumberPicker) findViewById(R.id.years);
         np.setMaxValue(2015);
         np.setMinValue(2010);
+        //np.setDividerDrawable();
 
         //TextView et = (TextView) np.getChildAt(1);
         //et.setTypeface(font);
@@ -80,6 +82,8 @@ public class ExistingEventsActivity extends AppCompatActivity {
         });
 
         getSupportActionBar().hide();
+
+        setDividerColor(np, Color.WHITE);
     }
 
     @Override
@@ -104,8 +108,32 @@ public class ExistingEventsActivity extends AppCompatActivity {
 
     public void getEvents(View view){
         cnp = (CustomNumberPicker) findViewById(R.id.years);
-        String value = "" + cnp.getValue();
-        Toast.makeText(getApplicationContext(), value, Toast.LENGTH_SHORT).show();
+        String year = "" + cnp.getValue();
+        //Toast.makeText(getApplicationContext(), year, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(ExistingEventsActivity.this, ShowEventsActivity.class);
+        intent.putExtra("year", year);
+        ExistingEventsActivity.this.startActivity(intent);
+    }
 
+    private void setDividerColor(NumberPicker picker, int color) {
+
+        java.lang.reflect.Field[] pickerFields = NumberPicker.class.getDeclaredFields();
+        for (java.lang.reflect.Field pf : pickerFields) {
+            if (pf.getName().equals("mSelectionDivider")) {
+                pf.setAccessible(true);
+                try {
+                    ColorDrawable colorDrawable = new ColorDrawable(color);
+                    pf.set(picker, colorDrawable);
+                } catch (IllegalArgumentException e) {
+                    e.printStackTrace();
+                } catch (Resources.NotFoundException e) {
+                    e.printStackTrace();
+                }
+                catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+        }
     }
 }

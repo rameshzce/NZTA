@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <LinearLayout
     android:orientation="vertical"
     android:background="@color/existingEvents"
@@ -19,19 +17,7 @@
             android:textColor="@color/white"
             android:textStyle="bold"
             android:text="Existing Events" />
-    <Button
-        android:id="@+id/button"
-        android:layout_width="175dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10sp"
-        android:layout_marginBottom="0sp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/bg_button_rounded"
-        android:textColor="@color/white"
-        android:textAllCaps="false"
-        android:textSize="16dp"
-        android:onClick="getEvents"
-        android:text="Select year"  />
+
             <com.tokkalo.nzta.CustomNumberPicker
                 android:id="@+id/years"
                 android:layout_width="wrap_content"
@@ -39,6 +25,20 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="0dp">
             </com.tokkalo.nzta.CustomNumberPicker>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_height="50dp"
+        android:layout_width="fill_parent"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/bg_button_rounded"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textSize="26dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:onClick="getEvents"
+        android:text="Select year"  />
         </LinearLayout>
 
     <!--  <fragment
