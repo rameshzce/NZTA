@@ -37,28 +37,29 @@
             <TableRow
                 android:id="@+id/tableRow1"
                 android:layout_width="fill_parent"
-                android:gravity="center_horizontal"        >
+                android:minHeight="30dp"
+                        >
 
     <TextView
         android:id="@+id/photoGallery"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:textColor="@color/white"
         android:layout_below="@id/address"
         android:textSize="15dip"
+        android:gravity="center"
         android:text="@string/photoGallery"
-        android:layout_marginTop="1dip"
         />
 
     <TextView
         android:id="@+id/videoGallery"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:textColor="@color/white"
         android:layout_below="@id/photoGallery"
         android:textSize="15dip"
+        android:gravity="center"
         android:text="@string/videoGallery"
-        android:layout_marginTop="1dip"
         />
 
 </TableRow>
