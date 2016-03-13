@@ -10,6 +10,8 @@
     <string name="existingEventsTitle">Existing events</string>
     <string name="upcomingEventsTitle">Upcoming events 2016</string>
     <string name="fonthandlee">fonts/handlee-regular.ttf</string>
+    <string name="photoGallery">Photo Gallery</string>
+    <string name="videoGallery">Video Gallery</string>
 
     <string-array name="Years">
         <item>2015</item>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+
+
+
+    <TextView
+        android:id="@+id/id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:typeface="sans"
+        android:textSize="20dip"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id"
+        android:textColor="@color/white"
+        android:textSize="15dip"
+        android:layout_marginTop="1dip"
+        />
+
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/tableLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/address"
+            android:stretchColumns="*" >
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="fill_parent"
+                android:gravity="center_horizontal"        >
+
+    <TextView
+        android:id="@+id/photoGallery"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_below="@id/address"
+        android:textSize="15dip"
+        android:text="@string/photoGallery"
+        android:layout_marginTop="1dip"
+        />
+
+    <TextView
+        android:id="@+id/videoGallery"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_below="@id/photoGallery"
+        android:textSize="15dip"
+        android:text="@string/videoGallery"
+        android:layout_marginTop="1dip"
+        />
+
+</TableRow>
+    </TableLayout>
+</RelativeLayout>
