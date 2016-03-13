@@ -9,10 +9,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
+
 /**
  * Created by rameshkolamala on 01/03/16.
  */
 public class FragmentOne extends ListFragment implements AdapterView.OnItemClickListener {
+    Array years;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.list_fragment, container, false);
@@ -22,7 +25,7 @@ public class FragmentOne extends ListFragment implements AdapterView.OnItemClick
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(), R.array.Planets, android.R.layout.simple_list_item_1);
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(), R.array.Years, android.R.layout.simple_list_item_1);
         setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
     }

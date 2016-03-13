@@ -7,11 +7,20 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="AppTheme2" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/existingEventsTitle</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
     <style name="TextLabel" parent="TextAppearance.AppCompat">
         <item name="android:textColorHint">@color/white</item>
         <item name="android:textSize">18sp</item>
         <item name="colorAccent">@color/red</item>
         <item name="colorControlNormal">@color/white</item>
         <item name="colorControlActivated">@color/white</item>
+    </style>
+    <style name="CustomFont">
+        <item name="font">@string/fonthandlee</item>
     </style>
 </resources>

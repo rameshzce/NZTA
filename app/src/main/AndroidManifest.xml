@@ -61,7 +61,7 @@
         <activity android:name=".ReferFriendActivity" />
         <activity android:name=".NewZealandActivity" />
         <activity android:name=".InviteFriendActivity" />
-        <activity android:name=".ExistingEventsActivity" />
+        <activity android:name=".ExistingEventsActivity" android:theme="@style/AppTheme2"/>
         <activity android:name=".ComingEventsActivity" />
         <activity android:name=".UpcomingEventsActivity" />
         <activity android:name=".UCEventsActivity" />

@@ -84,39 +84,27 @@ package com.tokkalo.nzta;
 
             Typeface font = Typeface.createFromAsset(getAssets(), "fonts/handlee-regular.ttf");
 
-            // Set the ActionBar background color
             ab.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#9d1457")));
 
-            // Create a TextView programmatically.
             TextView tv = new TextView(getApplicationContext());
 
-            // Create a LayoutParams for TextView
             RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
                     AbsListView.LayoutParams.MATCH_PARENT, // Width of TextView
                     AbsListView.LayoutParams.WRAP_CONTENT); // Height of TextView
 
-            // Apply the layout parameters to TextView widget
             tv.setLayoutParams(lp);
 
-            // Set text to display in TextView
-            // This will set the ActionBar title text
             tv.setText("Upcoming events 2016");
 
             tv.setGravity(Gravity.CENTER);
 
-            // Set the serif font for TextView text
-            // This will change ActionBar title text font
             tv.setTypeface(font);
-            //tv.setTypeface(null, Typeface.BOLD);
 
-            // Set the text color of TextView
-            // This will change the ActionBar title text color
             tv.setTextColor(Color.parseColor("#FFFFFF"));
             tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
 
             ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 
-            // Finally, set the newly created TextView as ActionBar custom view
             ab.setCustomView(tv);
 
             getSearchResults();
