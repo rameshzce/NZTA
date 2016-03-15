@@ -7,6 +7,7 @@ import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.SimpleAdapter;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -66,9 +67,16 @@ public class SpecialAdapter2 extends SimpleAdapter {
         int colorPos = position % listItemBackground.length;
         view.setBackgroundResource(listItemBackground[colorPos]);
         tr.setBackgroundResource(galleryBackground[colorPos]);
+
+        ImageView im1 = (ImageView) view.findViewById(R.id.imageGallery);
+        ImageView im2 = (ImageView) view.findViewById(R.id.imageVideo);
+
         if(colorPos == 0){
             tv3.setText(content);
             tv4.setText(content2);
+
+            im1.setVisibility(View.GONE);
+            im2.setVisibility(View.GONE);
         }
 
 

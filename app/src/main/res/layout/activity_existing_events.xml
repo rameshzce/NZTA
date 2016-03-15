@@ -38,7 +38,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:onClick="getEvents"
-        android:text="Select year"  />
+        android:text="Select year n' Go"  />
         </LinearLayout>
 
     <!--  <fragment

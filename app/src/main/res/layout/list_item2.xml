@@ -37,31 +37,68 @@
             <TableRow
                 android:id="@+id/tableRow1"
                 android:layout_width="fill_parent"
-                android:minHeight="30dp"
-                        >
+                android:minHeight="30dp" >
 
-    <TextView
-        android:id="@+id/photoGallery"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:textColor="@color/white"
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tableLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_below="@id/address"
-        android:textSize="15dip"
-        android:gravity="center"
-        android:text="@string/photoGallery"
-        />
+        android:stretchColumns="*" >
 
-    <TextView
-        android:id="@+id/videoGallery"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:textColor="@color/white"
-        android:layout_below="@id/photoGallery"
-        android:textSize="15dip"
-        android:gravity="center"
-        android:text="@string/videoGallery"
-        />
-
-</TableRow>
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="fill_parent"
+            android:minHeight="30dp" >
+            <ImageView
+                android:id="@+id/imageGallery"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/existing_events" >
+            </ImageView>
+                <TextView
+                    android:id="@+id/photoGallery"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textColor="@color/white"
+                    android:layout_below="@id/address"
+                    android:textSize="15dip"
+                    android:gravity="center"
+                    android:text="@string/photoGallery"       />
+        </TableRow>
     </TableLayout>
+                <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/tableLayout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/address"
+                    android:stretchColumns="*" >
+
+                    <TableRow
+                        android:id="@+id/tableRow3"
+                        android:layout_width="fill_parent"
+                        android:minHeight="30dp" >
+                        <ImageView
+                            android:id="@+id/imageVideo"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/existing_events" >
+                        </ImageView>
+                <TextView
+                    android:id="@+id/videoGallery"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textColor="@color/white"
+                    android:layout_below="@id/photoGallery"
+                    android:textSize="15dip"
+                    android:gravity="center"
+                    android:text="@string/videoGallery"        />
+
+
+        </TableRow>
+    </TableLayout>
+            </TableRow>
+        </TableLayout>
 </RelativeLayout>
