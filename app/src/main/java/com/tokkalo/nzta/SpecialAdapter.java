@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -37,6 +38,11 @@ public class SpecialAdapter extends SimpleAdapter {
         //RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) view.getLayoutParams();
         //params.width = 1200;
 
+        LinearLayout ll = (LinearLayout) view.findViewById(R.id.layout1);
+
+        RelativeLayout.LayoutParams lpimgHeader = new RelativeLayout.LayoutParams(ll.getLayoutParams());
+        lpimgHeader.setMargins(150, 0, 0, 0);
+        ll.setLayoutParams(lpimgHeader);
 
         TextView tv = (TextView) view.findViewById(R.id.id);
         Typeface font = Typeface.createFromAsset(tv.getContext().getAssets(), "fonts/handlee-regular.ttf");
@@ -47,9 +53,14 @@ public class SpecialAdapter extends SimpleAdapter {
         tv2.setTypeface(font);
 
         int colorPos = position % listItemBackground.length;
-        view.setBackgroundResource(listItemBackground[colorPos]);
-        //view.setLayoutParams(params);
-        //view.setRight(100);
+        //view.setBackgroundResource(listItemBackground[colorPos]);
+        ll.setBackgroundResource(listItemBackground[colorPos]);
+
+        if (colorPos == 0){
+            lpimgHeader.setMargins(0, 0, 150, 0);
+            ll.setLayoutParams(lpimgHeader);
+        }
+
         return view;
     }
 }
