@@ -64,12 +64,12 @@ public class ShowEventsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String year = intent.getStringExtra("year");
 
-        list = (ListView) findViewById(R.id.listView2);
+        list = (ListView) findViewById(R.id.listView);
         personList = new ArrayList<HashMap<String,String>>();
 
-        RelativeLayout.LayoutParams lpimgHeader = new RelativeLayout.LayoutParams(list.getLayoutParams());
+        /*RelativeLayout.LayoutParams lpimgHeader = new RelativeLayout.LayoutParams(list.getLayoutParams());
         lpimgHeader.setMargins(50, 0, 50, 0);
-        list.setLayoutParams(lpimgHeader);
+        list.setLayoutParams(lpimgHeader);*/
 
         ActionBar ab = getSupportActionBar();
 

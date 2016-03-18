@@ -8,6 +8,8 @@ import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -37,6 +39,12 @@ public class SpecialAdapter2 extends SimpleAdapter {
         //RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) view.getLayoutParams();
         //params.width = 1200;
 
+        LinearLayout ll = (LinearLayout) view.findViewById(R.id.layout1);
+
+        RelativeLayout.LayoutParams lpimgHeader = new RelativeLayout.LayoutParams(ll.getLayoutParams());
+        lpimgHeader.setMargins(150, 0, 0, 0);
+        ll.setLayoutParams(lpimgHeader);
+
 
         TextView tv = (TextView) view.findViewById(R.id.id);
         Typeface font = Typeface.createFromAsset(tv.getContext().getAssets(), "fonts/handlee-regular.ttf");
@@ -65,7 +73,7 @@ public class SpecialAdapter2 extends SimpleAdapter {
 
 
         int colorPos = position % listItemBackground.length;
-        view.setBackgroundResource(listItemBackground[colorPos]);
+        ll.setBackgroundResource(listItemBackground[colorPos]);
         tr.setBackgroundResource(galleryBackground[colorPos]);
 
         ImageView im1 = (ImageView) view.findViewById(R.id.imageGallery);
@@ -77,6 +85,9 @@ public class SpecialAdapter2 extends SimpleAdapter {
 
             im1.setVisibility(View.GONE);
             im2.setVisibility(View.GONE);
+
+            lpimgHeader.setMargins(0, 0, 150, 0);
+            ll.setLayoutParams(lpimgHeader);
         }
 
 

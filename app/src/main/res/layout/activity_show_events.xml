@@ -7,11 +7,14 @@
     android:background="@color/existingEvents"
     tools:context="com.tokkalo.nzta.ShowEventsActivity">
 
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:divider="@android:color/transparent"
         android:dividerHeight="20dp"
-        android:id="@+id/listView2" />
+        android:layout_marginRight="0dp"
+        android:layout_marginLeft="0dp"
+        android:id="@+id/listView" />
 
 </RelativeLayout>
