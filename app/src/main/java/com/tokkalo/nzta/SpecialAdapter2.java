@@ -25,6 +25,7 @@ public class SpecialAdapter2 extends SimpleAdapter {
 
     private int[] listItemBackground = new int[] { R.drawable.list_background3, R.drawable.list_background4 };
     private int[] galleryBackground = new int[] { R.drawable.gallery_bg, R.drawable.gallery_bg2};
+    private int[] videoBackground = new int[] { R.drawable.gallery_bg, R.drawable.gallery_bg3};
 
     public SpecialAdapter2(Context context, List<HashMap<String, String>> items, int resource, String[] from, int[] to) {
         super(context, items, resource, from, to);
@@ -63,7 +64,9 @@ public class SpecialAdapter2 extends SimpleAdapter {
         String tvs4 = tv4.getText().toString();
         tv4.setTypeface(font);
 
-        TableRow tr = (TableRow) view.findViewById(R.id.tableRow1);
+        TableRow tr2 = (TableRow) view.findViewById(R.id.tableRow2);
+
+        TableRow tr3 = (TableRow) view.findViewById(R.id.tableRow3);
 
         SpannableString content = new SpannableString(tvs3);
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
@@ -74,7 +77,8 @@ public class SpecialAdapter2 extends SimpleAdapter {
 
         int colorPos = position % listItemBackground.length;
         ll.setBackgroundResource(listItemBackground[colorPos]);
-        tr.setBackgroundResource(galleryBackground[colorPos]);
+        tr2.setBackgroundResource(galleryBackground[colorPos]);
+        tr3.setBackgroundResource(videoBackground[colorPos]);
 
         ImageView im1 = (ImageView) view.findViewById(R.id.imageGallery);
         ImageView im2 = (ImageView) view.findViewById(R.id.imageVideo);
