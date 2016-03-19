@@ -87,8 +87,8 @@ public class SpecialAdapter2 extends SimpleAdapter {
             tv3.setText(content);
             tv4.setText(content2);
 
-            im1.setVisibility(View.GONE);
-            im2.setVisibility(View.GONE);
+            //im1.setVisibility(View.GONE);
+            //im2.setVisibility(View.GONE);
 
             lpimgHeader.setMargins(0, 0, 150, 0);
             ll.setLayoutParams(lpimgHeader);
