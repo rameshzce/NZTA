@@ -4,6 +4,7 @@ package com.tokkalo.nzta;
  * Created by rameshkolamala on 19/03/16.
  */
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,10 +20,11 @@ public class CustomAdapter extends BaseAdapter{
     Context context;
     int [] imageId;
     private static LayoutInflater inflater=null;
-    public CustomAdapter(GalleryActivity mainActivity, String[] prgmNameList, int[] prgmImages) {
+
+    public CustomAdapter(GalleryActivity galleryActivity, String[] prgmNameList, int[] prgmImages) {
         // TODO Auto-generated constructor stub
         result=prgmNameList;
-        context=mainActivity;
+        context = galleryActivity;
         imageId=prgmImages;
         inflater = ( LayoutInflater )context.
                 getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -70,7 +72,11 @@ public class CustomAdapter extends BaseAdapter{
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                Toast.makeText(context, "You Clicked "+result[position], Toast.LENGTH_LONG).show();
+                //Toast.makeText(context, "You Clicked "+result[position], Toast.LENGTH_LONG).show();
+                Intent i = new Intent(context, FullImageActivity.class);
+                // passing array index
+                i.putExtra("id", position);
+                context.startActivity(i);
             }
         });
 
