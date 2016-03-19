@@ -10,4 +10,15 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.tokkalo.nzta.GalleryActivity">
 
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:columnWidth="80dp"
+        android:gravity="center"
+        android:numColumns="auto_fit"
+        android:stretchMode="columnWidth" >
+    </GridView>
+
 </RelativeLayout>
