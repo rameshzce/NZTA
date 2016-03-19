@@ -85,7 +85,8 @@
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity android:name=".FacebookActivity" />
-        <activity android:name=".ShowEventsActivity"></activity>
+        <activity android:name=".ShowEventsActivity" />
+        <activity android:name=".GalleryActivity"></activity>
     </application>
 
 </manifest>
