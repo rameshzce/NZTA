@@ -1,6 +1,7 @@
 package com.tokkalo.nzta;
 
 import android.content.ClipData;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -19,9 +20,38 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class GalleryActivity extends AppCompatActivity {
-    GridView gridView;
-    ArrayList<ClipData.Item> gridArray = new ArrayList<ClipData.Item>();
-    CustomGridViewAdapter customGridAdapter;
+    GridView gv;
+    Context context;
+    ArrayList prgmName;
+
+    public static String [] prgmNameList={
+            "Let Us C","c++","JAVA",
+            "Jsp","Microsoft .Net","Android",
+            "PHP","Jquery","JavaScript",
+            "Let Us C","c++","JAVA",
+            "Jsp","Microsoft .Net","Android",
+            "PHP","Jquery","JavaScript",
+            "Let Us C","c++","JAVA",
+            "Jsp","Microsoft .Net","Android",
+            "PHP","Jquery","JavaScript",
+            "Let Us C","c++","JAVA",
+            "Jsp","Microsoft .Net","Android",
+            "PHP","Jquery","JavaScript"
+    };
+    public static int [] prgmImages={
+            R.drawable.image_1,R.drawable.image_2,R.drawable.image_3,
+            R.drawable.image_4,R.drawable.image_5,R.drawable.image_6,
+            R.drawable.image_7,R.drawable.image_8,R.drawable.image_9,
+            R.drawable.image_1,R.drawable.image_2,R.drawable.image_3,
+            R.drawable.image_4,R.drawable.image_5,R.drawable.image_6,
+            R.drawable.image_7,R.drawable.image_8,R.drawable.image_9,
+            R.drawable.image_1,R.drawable.image_2,R.drawable.image_3,
+            R.drawable.image_4,R.drawable.image_5,R.drawable.image_6,
+            R.drawable.image_7,R.drawable.image_8,R.drawable.image_9,
+            R.drawable.image_1,R.drawable.image_2,R.drawable.image_3,
+            R.drawable.image_4,R.drawable.image_5,R.drawable.image_6,
+            R.drawable.image_7,R.drawable.image_8,R.drawable.image_9
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,18 +85,9 @@ public class GalleryActivity extends AppCompatActivity {
 
         ab.setCustomView(tv);
 
-        //set grid view item
-        Bitmap homeIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.image_1);
-        Bitmap userIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.image_2);
-
-        gridArray.add(new ClipData.Item("Home"));
-        gridArray.add(new ClipData.Item("User"));
-        gridArray.add(new ClipData.Item("House"));
-        gridArray.add(new ClipData.Item("Friend"));
+        gv = (GridView) findViewById(R.id.gridView1);
+        gv.setAdapter(new CustomAdapter(this, prgmNameList,prgmImages));
 
 
-        gridView = (GridView) findViewById(R.id.gridView);
-        customGridAdapter = new CustomGridViewAdapter(this, R.layout.row_grid, gridArray);
-        gridView.setAdapter(customGridAdapter);
     }
 }
