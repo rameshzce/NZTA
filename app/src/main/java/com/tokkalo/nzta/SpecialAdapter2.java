@@ -43,7 +43,7 @@ public class SpecialAdapter2 extends SimpleAdapter {
         LinearLayout ll = (LinearLayout) view.findViewById(R.id.layout1);
 
         RelativeLayout.LayoutParams lpimgHeader = new RelativeLayout.LayoutParams(ll.getLayoutParams());
-        lpimgHeader.setMargins(150, 0, 0, 0);
+        lpimgHeader.setMargins(40, 0, 0, 0);
         ll.setLayoutParams(lpimgHeader);
 
 
@@ -90,7 +90,7 @@ public class SpecialAdapter2 extends SimpleAdapter {
             //im1.setVisibility(View.GONE);
             //im2.setVisibility(View.GONE);
 
-            lpimgHeader.setMargins(0, 0, 150, 0);
+            lpimgHeader.setMargins(0, 0, 40, 0);
             ll.setLayoutParams(lpimgHeader);
         }
 
