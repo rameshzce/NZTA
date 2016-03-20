@@ -62,7 +62,7 @@
                             android:layout_height="20dp"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="10dp"
-                            android:src="@drawable/existing_events"></ImageView>
+                            android:src="@drawable/camera"></ImageView>
 
                         <TextView
                             android:id="@+id/photoGallery"
@@ -94,7 +94,7 @@
                             android:layout_height="20dp"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="10dp"
-                            android:src="@drawable/existing_events"></ImageView>
+                            android:src="@drawable/video"></ImageView>
 
                         <TextView
                             android:id="@+id/videoGallery"
