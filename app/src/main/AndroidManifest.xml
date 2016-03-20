@@ -87,7 +87,8 @@
         <activity android:name=".FacebookActivity" />
         <activity android:name=".ShowEventsActivity" />
         <activity android:name=".GalleryActivity" />
-        <activity android:name=".FullImageActivity"></activity>
+        <activity android:name=".FullImageActivity" />
+        <activity android:name=".PlayVideoActivity"></activity>
     </application>
 
 </manifest>

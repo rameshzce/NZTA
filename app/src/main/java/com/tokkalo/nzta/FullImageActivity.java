@@ -13,6 +13,7 @@ import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 public class FullImageActivity extends AppCompatActivity {
     public static int[] prgmImages = {
@@ -69,5 +70,13 @@ public class FullImageActivity extends AppCompatActivity {
 
         ImageView imageView = (ImageView) findViewById(R.id.imageView1);
         imageView.setImageResource(prgmImages[position]);
+
+        final VideoView videoView =
+                (VideoView) findViewById(R.id.videoView);
+
+        videoView.setVideoPath(
+                "http://www.ebookfrenzy.com/android_book/movie.mp4");
+
+        videoView.start();
     }
 }
