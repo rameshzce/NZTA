@@ -22,6 +22,7 @@ import java.util.List;
  */
 public class SpecialAdapter2 extends SimpleAdapter {
     private int[] colors = new int[] { 0x30FF0000, 0x300000FF };
+    private int[] padding = new int[]{0, 20};
 
     private int[] listItemBackground = new int[] { R.drawable.list_background3, R.drawable.list_background4 };
     private int[] galleryBackground = new int[] { R.drawable.gallery_bg, R.drawable.gallery_bg2};
@@ -79,6 +80,8 @@ public class SpecialAdapter2 extends SimpleAdapter {
         ll.setBackgroundResource(listItemBackground[colorPos]);
         tr2.setBackgroundResource(galleryBackground[colorPos]);
         tr3.setBackgroundResource(videoBackground[colorPos]);
+        tv.setPadding(padding[colorPos], 0, 0, 0);
+        tv2.setPadding(padding[colorPos], 0, 0, 0);
 
         ImageView im1 = (ImageView) view.findViewById(R.id.imageGallery);
         ImageView im2 = (ImageView) view.findViewById(R.id.imageVideo);
