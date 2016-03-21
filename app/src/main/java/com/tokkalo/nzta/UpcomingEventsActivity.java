@@ -59,7 +59,7 @@ package com.tokkalo.nzta;
         private static final String TAG_ADD ="address";
         SharedPreferences prefs;
 
-
+        String jsonData = "{\"status\":\"SUCCESS\",\"message\":\"9 doner(s) found for your search.\",\"remarks\":\"\",\"doners\":{\"result\":[{\"id\":\"Sankranti\",\"name\":1,\"address\":\"Rangoli competition & kite festival on 17-1-2016 \"},{\"id\":\"Ugadi\",\"name\":2,\"address\":\"Event at epsom on 1-3-2016 Saturday at 6.00pm, all are welcome and followed by dinner \"},{\"id\":\"Batukamma\",\"name\":3,\"address\":\"War memorial hall, Mount eden on 1-6-2016 Friday 6.00pm, all are welcome and followed by dinner.\"},{\"id\":\"Diwali\",\"name\":4,\"address\":\"Diwali stall opens at 2 Pm at queens street. reworks and programs starts at 7 Pm.\\r\\nThe next day we have diwali celabrations\\r\\nat avondale. children participating Dances and some programs. please participate and enjoy the celebrations at 7.00 PM. Followed \"},{\"id\":\"X'mas\",\"name\":5,\"address\":\"War memorial hall, Mount eden,\\r\\non 01-06-16 friday, 6.00 pm, all are welcome and followed by dinner.\"},{\"id\":\"Sankranthi 2016\",\"name\":6,\"address\":\"Rangoli competation & kite festival on 17-01-16 sunday.\"},{\"id\":\"Ugadi\",\"name\":7,\"address\":\"Eevent at epsom on 01-03-16 Saturday at 6.00 pm, all are welcome\\r\\nand followed by dinner.\"},{\"id\":\"Batukamma\",\"name\":8,\"address\":\"War memorial hall, Mount eden,\\r\\non 01-06-16 friday, 6.00 pm, all are welcome and followed by dinner.\"},{\"id\":\"Diwali\",\"name\":9,\"address\":\"Diwali stall opens at 2 Pm at queens street. reworks and programs starts at 7 Pm.\\r\\nThe next day we have diwali celabrations\\r\\nat avondale. children participating Dances and some programs. please participate and enjoy the celebrations at 7.00 PM. Followed \"}]}}";
 
         JSONArray peoples = null;
 
@@ -107,14 +107,20 @@ package com.tokkalo.nzta;
 
             ab.setCustomView(tv);
 
-            getSearchResults();
+            //getSearchResults();
+
+            showList();
 
         }
 
 
         protected void showList(){
             try {
-                JSONObject jsonObj = new JSONObject(myJSON);
+                //JSONObject jsonObj = new JSONObject(myJSON);
+                JSONObject jsonObj1 = new JSONObject(jsonData);
+                String events = jsonObj1.getString("doners");
+
+                JSONObject jsonObj = new JSONObject(events);
                 peoples = jsonObj.getJSONArray(TAG_RESULTS);
 
                 for(int i=0;i<peoples.length();i++){
