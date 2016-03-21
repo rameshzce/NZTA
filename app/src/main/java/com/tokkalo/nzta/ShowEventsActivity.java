@@ -106,7 +106,7 @@ public class ShowEventsActivity extends AppCompatActivity {
                                     long id) {
 
                 Intent intent = new Intent(ShowEventsActivity.this, GalleryActivity.class);
-                intent.putExtra("galleryType", "Image Gallery");
+                intent.putExtra("galleryType", "Photo Gallery");
                 ShowEventsActivity.this.startActivity(intent);
 
             }

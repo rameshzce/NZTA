@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.AbsListView;
 import android.widget.GridView;
 import android.widget.RelativeLayout;
@@ -74,7 +75,36 @@ public class GalleryActivity extends AppCompatActivity {
 
         TextView vg = (TextView) findViewById(R.id.videoGallery);
         vg.setTypeface(font);
-        vg.setBackgroundColor(Color.parseColor("#b59206"));
+
+        if (galleryType.equalsIgnoreCase("Photo Gallery")) {
+            vg.setBackgroundColor(Color.parseColor("#b59206"));
+            pg.setBackgroundColor(Color.parseColor("#ffd428"));
+
+            vg.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(GalleryActivity.this, GalleryActivity.class);
+                    intent.putExtra("galleryType", "Video Gallery");
+                    GalleryActivity.this.startActivity(intent);
+                }
+            });
+        }
+
+        if (galleryType.equalsIgnoreCase("Video Gallery")) {
+            pg.setBackgroundColor(Color.parseColor("#b59206"));
+            vg.setBackgroundColor(Color.parseColor("#ffd428"));
+
+            pg.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(GalleryActivity.this, GalleryActivity.class);
+                    intent.putExtra("galleryType", "Photo Gallery");
+                    GalleryActivity.this.startActivity(intent);
+                }
+            });
+        }
+
+
 
         TextView tv = new TextView(getApplicationContext());
 
