@@ -1,21 +1,55 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="20dp"
     android:background="@color/existingEvents"
     android:orientation="vertical"
+    android:paddingTop="0dp"
+    tools:context=".GalleryActivity">
 
-    tools:context=".GalleryActivity" >
 
     <GridView
         android:id="@+id/gridView1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1"
-        android:numColumns="3" >
+        android:layout_marginBottom="4dp"
+        android:numColumns="3">
 
     </GridView>
 
-</RelativeLayout>
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tableLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gridView1"
+        android:stretchColumns="*">
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="fill_parent"
+            android:minHeight="40dp">
+
+            <TextView
+                android:id="@+id/photoGallery"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:text="@string/photoGallery"
+                android:textColor="@color/white"
+                android:textSize="18dip" />
+
+            <TextView
+                android:id="@+id/videoGallery"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:text="@string/videoGallery"
+                android:textColor="@color/white"
+                android:textSize="18dip" />
+        </TableRow>
+    </TableLayout>
+
+
+</LinearLayout>

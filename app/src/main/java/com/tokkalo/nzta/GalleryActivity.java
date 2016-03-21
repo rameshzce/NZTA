@@ -2,6 +2,7 @@ package com.tokkalo.nzta;
 
 import android.content.ClipData;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -23,6 +24,7 @@ public class GalleryActivity extends AppCompatActivity {
     GridView gv;
     Context context;
     ArrayList prgmName;
+    String galleryType;
 
     public static String [] prgmNameList={
             "Let Us C","c++","JAVA",
@@ -58,11 +60,21 @@ public class GalleryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
 
+        Intent intent = getIntent();
+        String galleryType = intent.getStringExtra("galleryType");
+
         ActionBar ab = getSupportActionBar();
 
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/handlee-regular.ttf");
 
         ab.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#b59206")));
+
+        TextView pg = (TextView) findViewById(R.id.photoGallery);
+        pg.setTypeface(font);
+
+        TextView vg = (TextView) findViewById(R.id.videoGallery);
+        vg.setTypeface(font);
+        vg.setBackgroundColor(Color.parseColor("#b59206"));
 
         TextView tv = new TextView(getApplicationContext());
 
@@ -72,7 +84,7 @@ public class GalleryActivity extends AppCompatActivity {
 
         tv.setLayoutParams(lp);
 
-        tv.setText("Gallery");
+        tv.setText(galleryType);
 
         tv.setGravity(Gravity.CENTER);
 
