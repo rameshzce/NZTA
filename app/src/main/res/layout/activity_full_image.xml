@@ -6,23 +6,22 @@
     android:background="@color/existingEvents"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     tools:context="com.tokkalo.nzta.FullImageActivity">
 
-    <ImageView
+    <!-- <ImageView
         android:id="@+id/imageView1"
         android:layout_gravity="center_horizontal"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@mipmap/ic_launcher" /> -->
 
-    <VideoView
-        android:id="@+id/videoView"
-        android:layout_width="500dp"
-        android:layout_marginTop="5dp"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
 </RelativeLayout>

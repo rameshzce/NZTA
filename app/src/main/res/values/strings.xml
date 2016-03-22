@@ -12,6 +12,9 @@
     <string name="fonthandlee">fonts/handlee-regular.ttf</string>
     <string name="photoGallery">Photo Gallery</string>
     <string name="videoGallery">Video Gallery</string>
+    <string name="ranklabel">"Rank : "</string>
+    <string name="countrylabel">"Country : "</string>
+    <string name="populationlabel">"Population : "</string>
 
     <string-array name="Years">
         <item>2015</item>

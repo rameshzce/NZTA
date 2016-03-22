@@ -5,6 +5,7 @@ package com.tokkalo.nzta;
     import android.content.Intent;
     import android.content.SharedPreferences;
     import android.graphics.Color;
+    import android.graphics.Point;
     import android.graphics.Typeface;
     import android.graphics.drawable.ColorDrawable;
     import android.os.AsyncTask;
@@ -12,11 +13,14 @@ package com.tokkalo.nzta;
     import android.support.v7.app.AppCompatActivity;
     import android.os.Bundle;
     import android.util.TypedValue;
+    import android.view.Display;
     import android.view.Gravity;
     import android.view.LayoutInflater;
     import android.view.Menu;
     import android.view.MenuItem;
+    import android.view.Surface;
     import android.view.View;
+    import android.view.WindowManager;
     import android.widget.AbsListView;
     import android.widget.ListAdapter;
     import android.widget.ListView;
@@ -67,6 +71,9 @@ package com.tokkalo.nzta;
 
         ListView list;
 
+        int width;
+        String rotation;
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -109,6 +116,15 @@ package com.tokkalo.nzta;
 
             //getSearchResults();
 
+            Display display = getWindowManager().getDefaultDisplay();
+            Point size = new Point();
+            display.getSize(size);
+            width = size.x;
+            int height = size.y;
+
+
+            rotation = getRotation(getApplicationContext());
+
             showList();
 
         }
@@ -135,6 +151,10 @@ package com.tokkalo.nzta;
 
                     personList.add(persons);
                 }
+
+                //Toast.makeText(UpcomingEventsActivity.this, width + " " + rotation, Toast.LENGTH_SHORT).show();
+
+
 
                 SpecialAdapter adapter = new SpecialAdapter(
                         UpcomingEventsActivity.this, personList, R.layout.list_item,
@@ -283,6 +303,24 @@ package com.tokkalo.nzta;
             Toast.makeText(UpcomingEventsActivity.this, "Couldn't get any JSON data.", Toast.LENGTH_SHORT).show();
 
 
+        }
+
+        public String getRotation(Context context) {
+            final int rotation = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getOrientation();
+            switch (rotation) {
+                case Surface.ROTATION_0:
+                    //return "portrait";
+                    return "P";
+                case Surface.ROTATION_90:
+                    //return "landscape";
+                    return "L";
+                case Surface.ROTATION_180:
+                    //return "reverse portrait";
+                    return "P";
+                default:
+                    //return "reverse landscape";
+                    return "L";
+            }
         }
     }
 
