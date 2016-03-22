@@ -65,7 +65,7 @@ public class ShowEventsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_show_events);
 
         Intent intent = getIntent();
-        String year = intent.getStringExtra("year");
+        final String year = intent.getStringExtra("year");
 
         list = (ListView) findViewById(R.id.listView);
         personList = new ArrayList<HashMap<String,String>>();
@@ -108,6 +108,7 @@ public class ShowEventsActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(ShowEventsActivity.this, GalleryActivity.class);
                 intent.putExtra("galleryType", "Photo Gallery");
+                intent.putExtra("year", year);
                 ShowEventsActivity.this.startActivity(intent);
 
             }

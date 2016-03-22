@@ -70,6 +70,7 @@ public class GalleryActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String galleryType = intent.getStringExtra("galleryType");
+        final String year = intent.getStringExtra("year");
 
         ActionBar ab = getSupportActionBar();
 
@@ -92,6 +93,7 @@ public class GalleryActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intent = new Intent(GalleryActivity.this, GalleryActivity.class);
                     intent.putExtra("galleryType", "Video Gallery");
+                    intent.putExtra("year", year);
                     GalleryActivity.this.startActivity(intent);
                 }
             });
@@ -106,6 +108,7 @@ public class GalleryActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intent = new Intent(GalleryActivity.this, GalleryActivity.class);
                     intent.putExtra("galleryType", "Photo Gallery");
+                    intent.putExtra("year", year);
                     GalleryActivity.this.startActivity(intent);
                 }
             });
@@ -121,7 +124,7 @@ public class GalleryActivity extends AppCompatActivity {
 
         tv.setLayoutParams(lp);
 
-        tv.setText(galleryType);
+        tv.setText(galleryType + " " + year);
 
         tv.setGravity(Gravity.CENTER);
 
