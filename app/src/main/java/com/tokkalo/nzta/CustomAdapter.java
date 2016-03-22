@@ -72,11 +72,11 @@ public class CustomAdapter extends BaseAdapter{
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                //Toast.makeText(context, "You Clicked "+result[position], Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "You Clicked " + result[position], Toast.LENGTH_LONG).show();
                 Intent i = new Intent(context, FullImageActivity.class);
                 // passing array index
                 i.putExtra("id", position);
-                context.startActivity(i);
+                //context.startActivity(i);
             }
         });
 

@@ -6,18 +6,23 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
+import android.view.Display;
 import android.view.Gravity;
+import android.view.Surface;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AbsListView;
 import android.widget.GridView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -127,9 +132,45 @@ public class GalleryActivity extends AppCompatActivity {
 
         ab.setCustomView(tv);
 
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        int height = size.y;
+
+        String rotation = getRotation(getApplicationContext());
+
+        String msg = "Width: " + width + ", height: " + height + ", rotation: " + rotation;
+
+        Toast.makeText(GalleryActivity.this, msg, Toast.LENGTH_LONG).show();
+
         gv = (GridView) findViewById(R.id.gridView1);
-        gv.setAdapter(new CustomAdapter(this, prgmNameList,prgmImages));
+        gv.setAdapter(new CustomAdapter(this, prgmNameList, prgmImages));
+
+        gv.setNumColumns(3);
+
+        if (rotation.equalsIgnoreCase("L")) {
+            gv.setNumColumns(5);
+        }
 
 
+    }
+
+    public String getRotation(Context context) {
+        final int rotation = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getOrientation();
+        switch (rotation) {
+            case Surface.ROTATION_0:
+                //return "portrait";
+                return "P";
+            case Surface.ROTATION_90:
+                //return "landscape";
+                return "L";
+            case Surface.ROTATION_180:
+                //return "reverse portrait";
+                return "P";
+            default:
+                //return "reverse landscape";
+                return "L";
+        }
     }
 }
