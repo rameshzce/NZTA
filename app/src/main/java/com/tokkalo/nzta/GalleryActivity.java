@@ -32,6 +32,7 @@ public class GalleryActivity extends AppCompatActivity {
     ArrayList prgmName;
     String galleryType;
     int newWidth;
+    String year;
 
     public static String [] prgmNameList={
             "Let Us C","c++","JAVA",
@@ -70,7 +71,7 @@ public class GalleryActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String galleryType = intent.getStringExtra("galleryType");
-        final String year = intent.getStringExtra("year");
+        year = intent.getStringExtra("year");
 
         ActionBar ab = getSupportActionBar();
 
@@ -157,7 +158,7 @@ public class GalleryActivity extends AppCompatActivity {
         }
 
         gv = (GridView) findViewById(R.id.gridView1);
-        gv.setAdapter(new CustomAdapter(this, prgmNameList, prgmImages, newWidth));
+        gv.setAdapter(new CustomAdapter(this, prgmNameList, prgmImages, newWidth, year));
 
 
         gv.setNumColumns(3);

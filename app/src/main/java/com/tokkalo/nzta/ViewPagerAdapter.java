@@ -16,24 +16,17 @@ import android.widget.TextView;
 public class ViewPagerAdapter extends PagerAdapter {
     // Declare Variables
     Context context;
-    String[] rank;
-    String[] country;
-    String[] population;
     int[] flag;
     LayoutInflater inflater;
 
-    public ViewPagerAdapter(Context context, String[] rank, String[] country,
-                            String[] population, int[] flag) {
+    public ViewPagerAdapter(Context context, int[] flag) {
         this.context = context;
-        this.rank = rank;
-        this.country = country;
-        this.population = population;
         this.flag = flag;
     }
 
     @Override
     public int getCount() {
-        return rank.length;
+        return flag.length;
     }
 
     @Override
@@ -45,9 +38,6 @@ public class ViewPagerAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
 
         // Declare Variables
-        TextView txtrank;
-        TextView txtcountry;
-        TextView txtpopulation;
         ImageView imgflag;
 
         inflater = (LayoutInflater) context
@@ -55,15 +45,7 @@ public class ViewPagerAdapter extends PagerAdapter {
         View itemView = inflater.inflate(R.layout.viewpager_item, container,
                 false);
 
-        // Locate the TextViews in viewpager_item.xml
-        txtrank = (TextView) itemView.findViewById(R.id.rank);
-        txtcountry = (TextView) itemView.findViewById(R.id.country);
-        txtpopulation = (TextView) itemView.findViewById(R.id.population);
 
-        // Capture position and set to the TextViews
-        txtrank.setText(rank[position]);
-        txtcountry.setText(country[position]);
-        txtpopulation.setText(population[position]);
 
         // Locate the ImageView in viewpager_item.xml
         imgflag = (ImageView) itemView.findViewById(R.id.flag);

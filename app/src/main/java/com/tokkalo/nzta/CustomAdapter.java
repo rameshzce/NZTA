@@ -21,13 +21,15 @@ public class CustomAdapter extends BaseAdapter{
     int [] imageId;
     int width;
     private static LayoutInflater inflater=null;
+    String yearSelected;
 
-    public CustomAdapter(GalleryActivity galleryActivity, String[] prgmNameList, int[] prgmImages, int newWidth) {
+    public CustomAdapter(GalleryActivity galleryActivity, String[] prgmNameList, int[] prgmImages, int newWidth, String year) {
         // TODO Auto-generated constructor stub
         result=prgmNameList;
         context = galleryActivity;
         imageId=prgmImages;
         width = newWidth;
+        yearSelected = year;
         inflater = ( LayoutInflater )context.
                 getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -79,6 +81,7 @@ public class CustomAdapter extends BaseAdapter{
                 Intent i = new Intent(context, FullImageActivity.class);
                 // passing array index
                 i.putExtra("id", position);
+                i.putExtra("yearSelected", yearSelected);
                 context.startActivity(i);
             }
         });

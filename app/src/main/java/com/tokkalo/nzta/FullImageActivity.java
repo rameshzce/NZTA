@@ -36,15 +36,20 @@ public class FullImageActivity extends AppCompatActivity {
     // Declare Variables
     ViewPager viewPager;
     PagerAdapter adapter;
-    String[] rank;
-    String[] country;
-    String[] population;
     int[] flag;
+    int positionSelected;
+    String yearSelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_full_image);
+
+        Intent i = getIntent();
+
+        // Selected image id
+        positionSelected = i.getExtras().getInt("id");
+        yearSelected = i.getExtras().getString("yearSelected");
 
         ActionBar ab = getSupportActionBar();
 
@@ -60,7 +65,7 @@ public class FullImageActivity extends AppCompatActivity {
 
         tv.setLayoutParams(lp);
 
-        tv.setText("Gallery");
+        tv.setText("Photo Gallery " + yearSelected);
 
         tv.setGravity(Gravity.CENTER);
 
@@ -73,34 +78,13 @@ public class FullImageActivity extends AppCompatActivity {
 
         ab.setCustomView(tv);
 
-        Intent i = getIntent();
 
-        // Selected image id
-        int position = i.getExtras().getInt("id");
 
-        //ImageView imageView = (ImageView) findViewById(R.id.imageView1);
-        //imageView.setImageResource(prgmImages[position]);
-
-        // Generate sample data
-        rank = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
-
-        country = new String[]{"China", "India", "United States",
-                "Indonesia", "Brazil", "Pakistan", "Nigeria", "Bangladesh",
-                "Russia", "Japan"};
-
-        population = new String[]{"1,354,040,000", "1,210,193,422",
-                "315,761,000", "237,641,326", "193,946,886", "182,912,000",
-                "170,901,000", "152,518,015", "143,369,806", "127,360,000"};
-
-        flag = new int[]{R.drawable.china, R.drawable.india,
-                R.drawable.unitedstates, R.drawable.indonesia,
-                R.drawable.brazil, R.drawable.pakistan, R.drawable.nigeria,
-                R.drawable.bangladesh, R.drawable.russia, R.drawable.japan};
 
         // Locate the ViewPager in viewpager_main.xml
         viewPager = (ViewPager) findViewById(R.id.pager);
         // Pass results to ViewPagerAdapter Class
-        adapter = new ViewPagerAdapter(FullImageActivity.this, rank, country, population, flag);
+        adapter = new ViewPagerAdapter(FullImageActivity.this, prgmImages);
         // Binds the Adapter to the ViewPager
         viewPager.setAdapter(adapter);
 
