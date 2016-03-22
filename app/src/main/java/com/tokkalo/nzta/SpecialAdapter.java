@@ -41,7 +41,7 @@ public class SpecialAdapter extends SimpleAdapter {
         LinearLayout ll = (LinearLayout) view.findViewById(R.id.layout1);
 
         RelativeLayout.LayoutParams lpimgHeader = new RelativeLayout.LayoutParams(ll.getLayoutParams());
-        lpimgHeader.setMargins(35, 0, 0, 0);
+        lpimgHeader.setMargins(40, 0, 40, 0);
         ll.setLayoutParams(lpimgHeader);
 
         TextView tv = (TextView) view.findViewById(R.id.id);
@@ -57,8 +57,8 @@ public class SpecialAdapter extends SimpleAdapter {
         ll.setBackgroundResource(listItemBackground[colorPos]);
 
         if (colorPos == 0){
-            lpimgHeader.setMargins(0, 0, 35, 0);
-            ll.setLayoutParams(lpimgHeader);
+            //lpimgHeader.setMargins(0, 0, 40, 0);
+            //ll.setLayoutParams(lpimgHeader);
         }
 
         return view;

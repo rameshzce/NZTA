@@ -11,10 +11,10 @@
     </padding>
 
     <corners
-        android:topLeftRadius="0dp"
+        android:topLeftRadius="10dp"
         android:topRightRadius="@dimen/top_right_radius"
         android:bottomRightRadius="@dimen/bottom_right_radius"
-        android:bottomLeftRadius="0dp" />
+        android:bottomLeftRadius="10dp" />
 
 
     <gradient
