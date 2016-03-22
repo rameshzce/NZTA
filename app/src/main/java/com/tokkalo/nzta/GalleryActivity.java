@@ -31,6 +31,7 @@ public class GalleryActivity extends AppCompatActivity {
     Context context;
     ArrayList prgmName;
     String galleryType;
+    int newWidth;
 
     public static String [] prgmNameList={
             "Let Us C","c++","JAVA",
@@ -60,6 +61,7 @@ public class GalleryActivity extends AppCompatActivity {
             R.drawable.image_4,R.drawable.image_5,R.drawable.image_6,
             R.drawable.image_7,R.drawable.image_8,R.drawable.image_9
     };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,19 +142,26 @@ public class GalleryActivity extends AppCompatActivity {
 
         String rotation = getRotation(getApplicationContext());
 
-        String msg = "Width: " + width + ", height: " + height + ", rotation: " + rotation;
+        //String msg = "Width: " + width + ", height: " + height + ", rotation: " + rotation;
 
-        Toast.makeText(GalleryActivity.this, msg, Toast.LENGTH_LONG).show();
+        //Toast.makeText(GalleryActivity.this, msg, Toast.LENGTH_LONG).show();
+
+
+        newWidth = ((width - 30) / 3);
+
+        if (rotation.equalsIgnoreCase("L")) {
+            newWidth = ((width - 50) / 5);
+        }
 
         gv = (GridView) findViewById(R.id.gridView1);
-        gv.setAdapter(new CustomAdapter(this, prgmNameList, prgmImages));
+        gv.setAdapter(new CustomAdapter(this, prgmNameList, prgmImages, newWidth));
+
 
         gv.setNumColumns(3);
 
         if (rotation.equalsIgnoreCase("L")) {
             gv.setNumColumns(5);
         }
-
 
     }
 

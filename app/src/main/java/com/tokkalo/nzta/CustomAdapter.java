@@ -19,13 +19,15 @@ public class CustomAdapter extends BaseAdapter{
     String [] result;
     Context context;
     int [] imageId;
+    int width;
     private static LayoutInflater inflater=null;
 
-    public CustomAdapter(GalleryActivity galleryActivity, String[] prgmNameList, int[] prgmImages) {
+    public CustomAdapter(GalleryActivity galleryActivity, String[] prgmNameList, int[] prgmImages, int newWidth) {
         // TODO Auto-generated constructor stub
         result=prgmNameList;
         context = galleryActivity;
         imageId=prgmImages;
+        width = newWidth;
         inflater = ( LayoutInflater )context.
                 getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -66,6 +68,7 @@ public class CustomAdapter extends BaseAdapter{
 
         //holder.tv.setText(result[position]);
         holder.img.setImageResource(imageId[position]);
+        holder.img.getLayoutParams().width = width;
 
         rowView.setOnClickListener(new OnClickListener() {
 
