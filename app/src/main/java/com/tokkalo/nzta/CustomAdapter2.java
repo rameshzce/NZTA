@@ -2,6 +2,7 @@ package com.tokkalo.nzta;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,17 +59,21 @@ public class CustomAdapter2 extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
+
         // TODO Auto-generated method stub
         Holder holder = new Holder();
         View rowView;
 
-        rowView = inflater.inflate(R.layout.program_list, null);
-        //holder.tv=(TextView) rowView.findViewById(R.id.textView1);
+        rowView = inflater.inflate(R.layout.program_list1, null);
+        holder.tv = (TextView) rowView.findViewById(R.id.textView1);
         holder.img = (ImageView) rowView.findViewById(R.id.imageView1);
 
-        //holder.tv.setText(result[position]);
+        holder.tv.setText(result[position]);
         holder.img.setImageResource(imageId[position]);
         holder.img.getLayoutParams().width = width;
+
+        Typeface font = Typeface.createFromAsset(holder.tv.getContext().getAssets(), "fonts/handlee-regular.ttf");
+        holder.tv.setTypeface(font);
 
         rowView.setOnClickListener(new View.OnClickListener() {
 

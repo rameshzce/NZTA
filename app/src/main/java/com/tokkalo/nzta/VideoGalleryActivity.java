@@ -157,11 +157,7 @@ public class VideoGalleryActivity extends AppCompatActivity {
         gv.setAdapter(new CustomAdapter2(this, prgmNameList, prgmImages, newWidth, year));
 
 
-        gv.setNumColumns(3);
 
-        if (rotation.equalsIgnoreCase("L")) {
-            gv.setNumColumns(5);
-        }
 
     }
 
