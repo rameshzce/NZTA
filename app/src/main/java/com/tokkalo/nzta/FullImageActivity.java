@@ -33,10 +33,14 @@ public class FullImageActivity extends FragmentActivity implements
     private FragmentPagerAdapter adapter;
     private Images imageId;
 
+    String galleryType;
+    String year;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_full_image);
+
 
         viewPage = (ViewPager) findViewById(R.id.viewPager);
         btnImagePrevious = (Button) findViewById(R.id.btnImagePrevious);
@@ -53,6 +57,27 @@ public class FullImageActivity extends FragmentActivity implements
 
         btnImagePrevious.setOnClickListener(this);
         btnImageNext.setOnClickListener(this);
+
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/handlee-regular.ttf");
+
+        TextView pg = (TextView) findViewById(R.id.photoGallery);
+        pg.setTypeface(font);
+
+        TextView vg = (TextView) findViewById(R.id.videoGallery);
+        vg.setTypeface(font);
+
+        pg.setBackgroundColor(Color.parseColor("#ffd428"));
+        vg.setBackgroundColor(Color.parseColor("#b59206"));
+
+        Button btn1 = (Button) findViewById(R.id.btnImageNext);
+        btn1.setTypeface(font);
+        btn1.setTextColor(Color.parseColor("#FFFFFF"));
+
+        Button btn2 = (Button) findViewById(R.id.btnImagePrevious);
+        btn2.setTypeface(font);
+        btn2.setTextColor(Color.parseColor("#FFFFFF"));
+
+
 
     }
 
