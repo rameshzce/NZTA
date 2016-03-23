@@ -31,29 +31,11 @@ public class VideoGalleryActivity extends AppCompatActivity {
     String year;
 
     public static String[] prgmNameList = {
-            "Let Us C", "c++", "JAVA",
-            "Jsp", "Microsoft .Net", "Android",
-            "PHP", "Jquery", "JavaScript",
-            "Let Us C", "c++", "JAVA",
-            "Jsp", "Microsoft .Net", "Android",
-            "PHP", "Jquery", "JavaScript",
-            "Let Us C", "c++", "JAVA",
-            "Jsp", "Microsoft .Net", "Android",
-            "PHP", "Jquery", "JavaScript",
-            "Let Us C", "c++", "JAVA",
-            "Jsp", "Microsoft .Net", "Android",
-            "PHP", "Jquery", "JavaScript"
+            "sravya, geetha, radha dance", "madhu acting play", "sravya, geetha, radha dance",
+            "madhu acting play", "sravya, geetha, radha dance", "madhu acting play",
+            "sravya, geetha, radha dance", "madhu acting play", "sravya, geetha, radha dance"
     };
     public static int[] prgmImages = {
-            R.drawable.image_1, R.drawable.image_2, R.drawable.image_3,
-            R.drawable.image_4, R.drawable.image_5, R.drawable.image_6,
-            R.drawable.image_7, R.drawable.image_8, R.drawable.image_9,
-            R.drawable.image_1, R.drawable.image_2, R.drawable.image_3,
-            R.drawable.image_4, R.drawable.image_5, R.drawable.image_6,
-            R.drawable.image_7, R.drawable.image_8, R.drawable.image_9,
-            R.drawable.image_1, R.drawable.image_2, R.drawable.image_3,
-            R.drawable.image_4, R.drawable.image_5, R.drawable.image_6,
-            R.drawable.image_7, R.drawable.image_8, R.drawable.image_9,
             R.drawable.image_1, R.drawable.image_2, R.drawable.image_3,
             R.drawable.image_4, R.drawable.image_5, R.drawable.image_6,
             R.drawable.image_7, R.drawable.image_8, R.drawable.image_9
