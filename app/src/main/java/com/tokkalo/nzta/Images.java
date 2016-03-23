@@ -10,6 +10,9 @@ public class Images {
 
     public Images() {
         imageId = new ArrayList<Integer>();
+        imageId.add(R.drawable.img);
+        imageId.add(R.drawable.img1);
+        imageId.add(R.drawable.img2);
         imageId.add(R.drawable.video1);
         imageId.add(R.drawable.video2);
         imageId.add(R.drawable.video3);

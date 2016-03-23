@@ -70,7 +70,7 @@ public class GalleryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_gallery);
 
         Intent intent = getIntent();
-        galleryType = intent.getStringExtra("galleryType");
+        String galleryType = intent.getStringExtra("galleryType");
         year = intent.getStringExtra("year");
 
         ActionBar ab = getSupportActionBar();
