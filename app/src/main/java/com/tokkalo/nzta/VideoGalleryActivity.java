@@ -129,8 +129,15 @@ public class VideoGalleryActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Toast.makeText(VideoGalleryActivity.this, "You Clicked at " + prgmNameList[+position], Toast.LENGTH_SHORT).show();
-
+                //Toast.makeText(VideoGalleryActivity.this, "You Clicked at " + prgmNameList[+position], Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(VideoGalleryActivity.this, PlayVideoActivity.class);
+                // passing array index
+                i.putExtra("id", position);
+                i.putExtra("yearSelected", year);
+                i.putExtra("galleryType", "Video Gallery");
+                i.putExtra("year", year);
+                i.putExtra("video", prgmNameList[position]);
+                VideoGalleryActivity.this.startActivity(i);
             }
         });
 
