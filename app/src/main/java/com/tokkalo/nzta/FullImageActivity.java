@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
@@ -11,103 +12,85 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.AbsListView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
-public class FullImageActivity extends AppCompatActivity {
-    public static int[] prgmImages = {
-            R.drawable.image_1, R.drawable.image_2, R.drawable.image_3,
-            R.drawable.image_4, R.drawable.image_5, R.drawable.image_6,
-            R.drawable.image_7, R.drawable.image_8, R.drawable.image_9,
-            R.drawable.image_1, R.drawable.image_2, R.drawable.image_3,
-            R.drawable.image_4, R.drawable.image_5, R.drawable.image_6,
-            R.drawable.image_7, R.drawable.image_8, R.drawable.image_9,
-            R.drawable.image_1, R.drawable.image_2, R.drawable.image_3,
-            R.drawable.image_4, R.drawable.image_5, R.drawable.image_6,
-            R.drawable.image_7, R.drawable.image_8, R.drawable.image_9,
-            R.drawable.image_1, R.drawable.image_2, R.drawable.image_3,
-            R.drawable.image_4, R.drawable.image_5, R.drawable.image_6,
-            R.drawable.image_7, R.drawable.image_8, R.drawable.image_9
-    };
+import java.util.ArrayList;
 
-    // Declare Variables
-    ViewPager viewPager;
-    PagerAdapter adapter;
-    int[] flag;
-    int positionSelected;
-    String yearSelected;
+public class FullImageActivity extends FragmentActivity implements
+        View.OnClickListener, ViewPager.OnPageChangeListener {
+
+    private Button btnImagePrevious, btnImageNext;
+    private int position = 0, totalImage;
+    private ViewPager viewPage;
+    private ArrayList<Integer> itemData;
+    private FragmentPagerAdapter adapter;
+    private Images imageId;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_full_image);
 
-        Intent i = getIntent();
+        viewPage = (ViewPager) findViewById(R.id.viewPager);
+        btnImagePrevious = (Button) findViewById(R.id.btnImagePrevious);
+        btnImageNext = (Button) findViewById(R.id.btnImageNext);
+        imageId = new Images();
+        itemData = imageId.getImageItem();
+        totalImage = itemData.size();
+        setPage(position);
 
-        // Selected image id
-        positionSelected = i.getExtras().getInt("id");
-        yearSelected = i.getExtras().getString("yearSelected");
+        adapter = new FragmentPagerAdapter(getSupportFragmentManager(),
+                itemData);
+        viewPage.setAdapter(adapter);
+        viewPage.setOnPageChangeListener(FullImageActivity.this);
 
-        ActionBar ab = getSupportActionBar();
+        btnImagePrevious.setOnClickListener(this);
+        btnImageNext.setOnClickListener(this);
 
-        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/handlee-regular.ttf");
+    }
 
-        ab.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#b59206")));
+    @Override
+    public void onClick(View v) {
+        if (v == btnImagePrevious) {
+            position--;
+            viewPage.setCurrentItem(position);
+        } else if (v == btnImageNext) {
+            position++;
+            viewPage.setCurrentItem(position);
+        }
+    }
 
-        TextView tv = new TextView(getApplicationContext());
+    @Override
+    public void onPageScrollStateChanged(int arg0) {
+    }
 
-        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
-                AbsListView.LayoutParams.MATCH_PARENT, // Width of TextView
-                AbsListView.LayoutParams.WRAP_CONTENT); // Height of TextView
+    @Override
+    public void onPageScrolled(int arg0, float arg1, int arg2) {
+    }
 
-        tv.setLayoutParams(lp);
+    @Override
+    public void onPageSelected(int position) {
+        this.position = position;
+        setPage(position);
+    }
 
-        tv.setText("Photo Gallery " + yearSelected);
-
-        tv.setGravity(Gravity.CENTER);
-
-        tv.setTypeface(font);
-
-        tv.setTextColor(Color.parseColor("#FFFFFF"));
-        tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
-
-        ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-
-        ab.setCustomView(tv);
-
-
-
-
-        // Locate the ViewPager in viewpager_main.xml
-        viewPager = (ViewPager) findViewById(R.id.pager);
-        // Pass results to ViewPagerAdapter Class
-        adapter = new ViewPagerAdapter(FullImageActivity.this, prgmImages);
-        // Binds the Adapter to the ViewPager
-        viewPager.setAdapter(adapter);
-
-        viewPager.setClipToPadding(false);
-        viewPager.setPageMargin(24);
-        viewPager.setPadding(48, 8, 48, 8);
-        viewPager.setOffscreenPageLimit(3);
-
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            public void onPageScrollStateChanged(int state) {
-                //Toast.makeText(FullImageActivity.this, "onPageScrollStateChanged", Toast.LENGTH_SHORT).show();
-            }
-
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                //Toast.makeText(FullImageActivity.this, "onPageScrolled", Toast.LENGTH_SHORT).show();
-            }
-
-            public void onPageSelected(int position) {
-                // Check if this is the page you want.
-            }
-        });
-
-
+    private void setPage(int page) {
+        if (page == 0 && totalImage > 0) {
+            btnImageNext.setVisibility(View.VISIBLE);
+            btnImagePrevious.setVisibility(View.INVISIBLE);
+        } else if (page == totalImage - 1 && totalImage > 0) {
+            btnImageNext.setVisibility(View.INVISIBLE);
+            btnImagePrevious.setVisibility(View.VISIBLE);
+        } else {
+            btnImageNext.setVisibility(View.VISIBLE);
+            btnImagePrevious.setVisibility(View.VISIBLE);
+        }
     }
 }
