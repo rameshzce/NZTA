@@ -70,7 +70,7 @@ public class CustomAdapter2 extends BaseAdapter {
 
         holder.tv.setText(result[position]);
         holder.img.setImageResource(imageId[position]);
-        holder.img.getLayoutParams().width = width;
+        //holder.img.getLayoutParams().width = width;
 
         Typeface font = Typeface.createFromAsset(holder.tv.getContext().getAssets(), "fonts/handlee-regular.ttf");
         holder.tv.setTypeface(font);
@@ -81,10 +81,13 @@ public class CustomAdapter2 extends BaseAdapter {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 //Toast.makeText(context, "You Clicked " + result[position], Toast.LENGTH_LONG).show();
-                Intent i = new Intent(context, FullImageActivity.class);
+                Intent i = new Intent(context, PlayVideoActivity.class);
                 // passing array index
                 i.putExtra("id", position);
                 i.putExtra("yearSelected", yearSelected);
+                i.putExtra("galleryType", "Video Gallery");
+                i.putExtra("year", yearSelected);
+                i.putExtra("video", result[position]);
                 context.startActivity(i);
             }
         });

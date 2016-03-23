@@ -48,7 +48,7 @@ public class VideoGalleryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_video_gallery);
 
         Intent intent = getIntent();
-        String galleryType = intent.getStringExtra("galleryType");
+        galleryType = intent.getStringExtra("galleryType");
         year = intent.getStringExtra("year");
 
         ActionBar ab = getSupportActionBar();
