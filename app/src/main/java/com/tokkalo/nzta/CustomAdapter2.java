@@ -70,7 +70,7 @@ public class CustomAdapter2 extends BaseAdapter {
 
         holder.tv.setText(result[position]);
         holder.img.setImageResource(imageId[position]);
-        //holder.img.getLayoutParams().width = width;
+        holder.img.getLayoutParams().width = 600;
 
         Typeface font = Typeface.createFromAsset(holder.tv.getContext().getAssets(), "fonts/handlee-regular.ttf");
         holder.tv.setTypeface(font);

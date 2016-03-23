@@ -15,6 +15,7 @@ import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 public class FullImageActivity extends AppCompatActivity {
@@ -87,6 +88,25 @@ public class FullImageActivity extends AppCompatActivity {
         adapter = new ViewPagerAdapter(FullImageActivity.this, prgmImages);
         // Binds the Adapter to the ViewPager
         viewPager.setAdapter(adapter);
+
+        viewPager.setClipToPadding(false);
+        viewPager.setPageMargin(24);
+        viewPager.setPadding(48, 8, 48, 8);
+        viewPager.setOffscreenPageLimit(3);
+
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            public void onPageScrollStateChanged(int state) {
+                //Toast.makeText(FullImageActivity.this, "onPageScrollStateChanged", Toast.LENGTH_SHORT).show();
+            }
+
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                //Toast.makeText(FullImageActivity.this, "onPageScrolled", Toast.LENGTH_SHORT).show();
+            }
+
+            public void onPageSelected(int position) {
+                // Check if this is the page you want.
+            }
+        });
 
 
     }

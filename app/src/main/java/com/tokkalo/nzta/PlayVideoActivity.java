@@ -5,14 +5,19 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
 import android.widget.AbsListView;
 import android.widget.GridView;
+import android.widget.MediaController;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.VideoView;
@@ -20,10 +25,12 @@ import android.widget.VideoView;
 import java.util.ArrayList;
 
 public class PlayVideoActivity extends AppCompatActivity {
-    Context context;
     String galleryType;
     String year;
     String video;
+
+    ProgressBar progressBar = null;
+    Context context = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,9 +108,36 @@ public class PlayVideoActivity extends AppCompatActivity {
         final VideoView videoView =
                 (VideoView) findViewById(R.id.videoView);
 
-        videoView.setVideoPath(
-                "http://www.ebookfrenzy.com/android_book/movie.mp4");
+        videoView.setVideoPath("http://www.ebookfrenzy.com/android_book/movie.mp4");
+        //videoView.setVideoPath("http://tokkalo.com/api/1/video1.mp4");
+
+        progressBar = (ProgressBar) findViewById(R.id.progressbar);
+
+        MediaController mediaController = new MediaController(this);
+        mediaController.setAnchorView(videoView);
+        videoView.setMediaController(mediaController);
 
         videoView.start();
+
+
+        progressBar.setVisibility(View.VISIBLE);
+
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                // TODO Auto-generated method stub
+                mp.start();
+                mp.setOnVideoSizeChangedListener(new MediaPlayer.OnVideoSizeChangedListener() {
+                    @Override
+                    public void onVideoSizeChanged(MediaPlayer mp, int arg1,
+                                                   int arg2) {
+                        // TODO Auto-generated method stub
+                        progressBar.setVisibility(View.GONE);
+                        mp.start();
+                    }
+                });
+
+            }
+        });
     }
 }

@@ -16,9 +16,12 @@ import android.view.Surface;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -32,14 +35,15 @@ public class VideoGalleryActivity extends AppCompatActivity {
 
     public static String[] prgmNameList = {
             "sravya, geetha, radha dance", "madhu acting play", "sravya, geetha, radha dance",
-            "madhu acting play", "sravya, geetha, radha dance", "madhu acting play",
-            "sravya, geetha, radha dance", "madhu acting play", "sravya, geetha, radha dance"
+            "madhu acting play", "sravya, geetha, radha dance", "madhu acting play"
     };
-    public static int[] prgmImages = {
-            R.drawable.image_1, R.drawable.image_2, R.drawable.image_3,
-            R.drawable.image_4, R.drawable.image_5, R.drawable.image_6,
-            R.drawable.image_7, R.drawable.image_8, R.drawable.image_9
+    public static Integer[] prgmImages = {
+            R.drawable.video1, R.drawable.video2, R.drawable.video3,
+            R.drawable.video4, R.drawable.video5, R.drawable.video6
     };
+
+    ListView list;
+
 
 
     @Override
@@ -103,7 +107,7 @@ public class VideoGalleryActivity extends AppCompatActivity {
 
         tv.setLayoutParams(lp);
 
-        tv.setText(galleryType + " " + year);
+        tv.setText("Existing Events " + year);
 
         tv.setGravity(Gravity.CENTER);
 
@@ -116,7 +120,21 @@ public class VideoGalleryActivity extends AppCompatActivity {
 
         ab.setCustomView(tv);
 
-        Display display = getWindowManager().getDefaultDisplay();
+        CustomVideoListAdapter adapter = new
+                CustomVideoListAdapter(VideoGalleryActivity.this, prgmNameList, prgmImages);
+        list = (ListView) findViewById(R.id.listView);
+        list.setAdapter(adapter);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                Toast.makeText(VideoGalleryActivity.this, "You Clicked at " + prgmNameList[+position], Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        /*Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
         int width = size.x;
@@ -136,7 +154,7 @@ public class VideoGalleryActivity extends AppCompatActivity {
         }
 
         gv = (GridView) findViewById(R.id.gridView2);
-        gv.setAdapter(new CustomAdapter2(this, prgmNameList, prgmImages, newWidth, year));
+        gv.setAdapter(new CustomAdapter2(this, prgmNameList, prgmImages, newWidth, year));*/
 
 
 
