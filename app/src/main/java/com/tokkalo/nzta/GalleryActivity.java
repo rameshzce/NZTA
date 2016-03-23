@@ -92,7 +92,7 @@ public class GalleryActivity extends AppCompatActivity {
             vg.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(GalleryActivity.this, GalleryActivity.class);
+                    Intent intent = new Intent(GalleryActivity.this, VideoGalleryActivity.class);
                     intent.putExtra("galleryType", "Video Gallery");
                     intent.putExtra("year", year);
                     GalleryActivity.this.startActivity(intent);
